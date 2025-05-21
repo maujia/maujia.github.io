@@ -3,138 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Arjun Mauji</title>
     <style>
+        :root {
+            --beige-bg: #F5F5DC;
+            --text-primary: #1a1a1a;
+            --text-secondary: #333333;
+            --link-color: #1a4971;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            color: #333;
+            font-family:'Courier New', 'Times New Roman', sans-serif;
+            background-color: var(--beige-bg);
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            font-size: 20px; /* Increased base font size */
         }
+        
+        .container {
+            max-width: 800px; /* Increased max-width */
+            margin: 40px auto; /* Reduced top/bottom margin */
+            padding: 0 24px;
+        }
+        
         h1 {
-            font-size: 1.8rem;
-            font-weight: normal;
-            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0 0 4px 0;
         }
-        h2 {
-            font-size: 1.2rem;
-            font-weight: normal;
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin: 0 0 30px 0; /* Reduced bottom margin */
         }
-        p {
-            margin-bottom: 1rem;
+        
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 25px 0 12px 0; /* Reduced margins */
+            color: var(--text-primary);
         }
+        
         ul {
             list-style-type: none;
-            padding-left: 1rem;
-            margin-bottom: 1.5rem;
+            padding: 0;
+            margin: 0;
         }
+        
         li {
-            margin-bottom: 0.5rem;
             position: relative;
+            padding-left: 18px;
+            margin-bottom: 12px;
+            font-size: 1.05rem; /* Increased bullet point text size */
         }
+        
         li::before {
             content: ">";
             position: absolute;
-            left: -1rem;
-            color: #888;
+            left: 0;
+            color: var(--text-primary);
         }
-        .nested {
-            padding-left: 1rem;
-            margin-top: 0.2rem;
+        
+        .bullet-content {
+            display: inline-block;
+            margin-left: 4px; /* Reduced margin */
         }
-        .nested li::before {
-            content: "◦";
-        }
+        
         a {
-            color: #0366d6;
+            color: var(--link-color);
             text-decoration: none;
         }
+        
         a:hover {
             text-decoration: underline;
         }
-        .footer {
-            margin-top: 3rem;
-            border-top: 1px solid #eee;
-            padding-top: 1rem;
-            font-size: 0.9rem;
+        
+        .social {
+            margin-top: 25px;
+        }
+        
+        .social a {
+            margin-right: 15px;
+            font-size: 1.05rem;
+        }
+        .blonde-text {
+            color: #202A44; /* Light blonde tone */
+            font-weight: bold; /* Optional: keep bold if needed */
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>your name</h1>
-        <p>forever curious. engineer, founder, explorer.</p>
-    </header>
-
-    <section>
-        <h2>what I'm up to</h2>
-        <ul>
-            <li>current role/status description goes here</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>origins</h2>
-        <ul>
-            <li>2020: your milestone</li>
-            <li>2021: your milestone</li>
-            <li>2022: your milestone</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>academics</h2>
-        <ul>
-            <li>your education detail</li>
-            <li>your academic achievement</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>internships</h2>
-        <ul>
-            <li>2022: description of work</li>
-            <li>2023: description of work</li>
-            <li>2024: description of work</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>key projects</h2>
-        <ul>
-            <li>
-                <a href="https://github.com/yourusername/project1">project name</a> — brief description
-                <ul class="nested">
-                    <li>key achievement</li>
-                    <li>technical detail</li>
+    <div class="container">
+        <h1>Arjun Mauji</h1>
+        <p class="tagline">student, explorer, engineer</p>
+        
+        <h3>current projects</h3>
+        <ul>    
+            <li>    
+                <span class="bullet-content">optical data acquisition and signal processing system used in wellness wearable technology</span>
+                <ul>
+                    <li>currently working on amplifying a simple photodiode signal with a NPN BJT and processing it with the Arduino IDE</li>
                 </ul>
             </li>
             <li>
-                <a href="https://github.com/yourusername/project2">project name</a> — brief description
-                <ul class="nested">
-                    <li>key achievement</li>
+                <span class="bullet-content"> An autonomous gym pose detector and camera app using the <a href="https://www.tensorflow.org/hub/tutorials/movenet" target="_blank">Tensorflow MoveNet pose detection model</a></span>
+                <!--    
+                <ul>
+                    <li>first learning how to use the MoveNet model and integrate it with iphone's built in camera</li>
                 </ul>
+                -->
             </li>
         </ul>
-        <p>for a more detailed technical background, see my <a href="resume.pdf">resume</a></p>
-    </section>
-
-    <section>
-        <h2>background</h2>
-        <p><strong>technical arsenal:</strong> your skills (programming languages, frameworks, tools, etc.)</p>
-        <p><strong>interests:</strong> your interests, hobbies, activities</p>
-    </section>
-
-    <footer class="footer">
-        <p>
-            <a href="https://github.com/yourusername">Github</a> / 
-            <a href="https://linkedin.com/in/yourusername">LinkedIn</a> / 
-            <a href="https://twitter.com/yourusername">Twitter</a>
-        </p>
-    </footer>
+    
+        <h3>school | incoming 3rd year @QueensU</h3>
+        <ul>
+            <li>
+                <span class="bullet-content"></span>Biomechanical Engineering</span>
+            </li>
+            <li>
+                <span class="bullet-content">currently taking engineering economics | May - July 2025</span>
+            </li>
+        </ul>
+        
+        <h3>technical abilities</h3>
+        <ul>
+            <li>
+                <span class="bullet-content">Programming (C, Python), Arduino microcontroller & IDE, Solidworks CAD</span>
+            </li>
+        </ul>
+        
+        <h3>past projects</h3>
+        <ul>
+            <li>
+                <span class="bullet-content">1st year, sem 1: Automated Fluid Dispenser<span>
+            </li>
+            <li>
+                <span class="bullet-content">2nd year, sem 1-2: Baja Automotive Design Team</span>
+            </li>
+        </ul>
+        
+        <div class="social">
+            <a href="https://linkedin.com/in/arjun-mauji-b67610215" target="_blank" style="color: #202A44; font-weight: bold;">LinkedIn</a>
+            <a href="https://x.com/ArjunMauji" target="_blank" style="color: #202A44; font-weight: bold;">Twitter</a>
+            <a href="https://github.com/maujia" target="_blank" style="color: #202A44; font-weight: bold;">GitHub</a>
+        </div>
+    </div>
 </body>
 </html>
