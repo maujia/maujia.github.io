@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="project-pages.css">
+    <title>Hardware Gait Analyzer - Project Details</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Back Button -->
+        <a href="index.html" class="back-button">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            Back to Projects
+        </a>
+
+        <!-- Project Header -->
+        <div class="project-header">
+            <h1>Automated Fluid Dispenser (AFD)</h1>
+        </div>
+
+        <div class="timeline-container">
+            <!-- Timeline Right Side - Content -->
+            <div class="timeline-right">
+                <!-- Project Description -->
+                <div class="project-description">
+                    <h1 class="project-title">Project Description</h1>
+                    <p class="description-text">
+                        A prototype fluid dispenser for use in medical facilities with hands-free dispensing, using an IR sensor, pump, vials, turntable and a custom gearbox. An idea based on Vancouver's pilot project machine called MySafe.
+                    </p>
+                </div>
+                <div class="project-description">
+                    <h1 class="project-title">Mechanical Aspect</h1>
+                    <div class="description-text">
+                        <p>• Modelled & 3D printed the main structure of the gearbox & fitted it with a 5-gear, 167:1 gear ratio, focusing on high torque for more precise vial rotations and alignment with dispensing nozzle </p>
+                        
+                    </div>
+                </div>
+                <div class="project-description">
+                    <h1 class="project-title">Software Aspect</h1>
+                    <div class="description-text">
+                        <p>• Integrated all dispenser components using a control loop, running on an Arduino Uno using C code.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Left Side - Images -->
+            <div class="timeline-left">
+                <!-- Overview Section Image -->
+                <div class="timeline-marker">
+                    <div class="timeline-image">
+                        <img src="src/png/fluiddispenser_schematic.jpg" alt="Main Photo">
+                    </div>
+                </div>
+                <!-- Mechanical Aspect Image -->
+                <div class="timeline-marker">
+                    <div class="timeline-image">
+                        <img src="src/png/sideview_gearbx.png" alt="Side View of Gearbox">
+                    </div>
+                </div>
+                <!-- Software Aspect Image -->
+                <div class="timeline-marker">
+                    <div class="timeline-image">
+                        <img src="src/png/arduinouno.jpg" alt="Software Design">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

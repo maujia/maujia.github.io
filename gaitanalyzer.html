@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="project-pages.css">
+    <title>Hardware Gait Analyzer - Project Details</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Back Button -->
+        <a href="index.html" class="back-button">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            Back to Projects
+        </a>
+
+        <!-- Project Header -->
+        <div class="project-header">
+            <h1>Hardware Gait Analyzer (Personal Project)</h1>
+        </div>
+
+        <div class="timeline-container">
+            <!-- Timeline Right Side - Content -->
+            <div class="timeline-right">
+                <!-- Project Description -->
+                <div class="project-description">
+                    <h1 class="project-title">Project Description</h1>
+                    <p class="description-text">
+                        This project is a proof-of-concept low-cost gait analysis tool. This prototype uses a pair of wireless sensor modules strategically placed under the L4 vertebra and on either the left or right thigh to measure basic hip flexion and extension movements.
+                        <br><br>
+                        The project provides the possibility for a completely modular and portable gait analyzer, usable in any environment, completely wireless and requiring just a computer to analyse results. 
+                    </p>
+                </div>
+                <div class="project-description">
+                    <h1 class="project-title">Mechanical Aspect</h1>
+                    <div class="description-text">
+                        <p>• Designed and 3D-printed a custom sensor housing for the protoboard holding the microcontroller, circuit wiring, IMU sensor, and LiPo battery.</p>
+                        <br>
+                        <p>• Modified the IMU's placement and orientation on the thigh, relying on pitch and roll angles instead of the yaw angle as it's known to drift and provide increasingly wrong values the more measurements are taken.</p>
+                        <br>
+                        <p>• Used 2 sensors as the 2nd sensor placed under the L4 vertebra would provide a more accurate reference angle than using a gravity vector normal to the ground when measuring absolute hip flexion and extension.</p>
+
+                        </div>
+                </div>
+                <div class="project-description">
+                    <h1 class="project-title">Electrical Aspect</h1>
+                    <div class="description-text">
+                        <p>• Built both sensor modules on protoboards with soldered components.</p>
+                        <br>
+                        <p>• Implemented LiPo battery power through an external JST connection, wireless operation within the 3D-printed housing.</p>
+                    </div>
+                </div>
+                <div class="project-description">
+                    <h1 class="project-title">Software Aspect</h1>
+                    <div class="description-text">
+                        <p>• Collected and processed IMU angle data using Jeff Rowberg's MPU6050 library and the Arduino IDE.</p>
+                        <br>
+                        <p>• Developed Python scripts with serial and threading for Bluetooth data logging; currently expanding to WiFi/TCP for simultaneous data collection from both sensors.</p>
+                        <br>
+                        <p>• Integrated preliminary gait visualization in OpenSim's biomechanics app using their open-source GUI tools.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Left Side - Images -->
+            <div class="timeline-left">
+                <!-- Overview Section Image -->
+                <div class="timeline-marker">
+                    <div class="timeline-image">
+                        <img src="src/png/gait_analysis.png" alt="Main Photo">
+                    </div>
+                </div>
+                <!-- Mechanical Aspect Image -->
+                <div class="timeline-marker">
+                    <div class="timeline-image">
+                        <img src="src/png/cad_sensormodule.png" alt="Mechanical Design">
+                    </div>
+                </div>
+                <!-- electrical Aspect Image -->
+                <div class="timeline-marker">
+                    <div class="timeline-image">
+                        <img src="src/png/isometric_photo_rmvbg.png" alt="Electrical Design" style="transform: scale(0.8); transform-origin: center;">
+                    </div>
+                </div>
+                <!-- Software Aspect Image -->
+                <div class="timeline-marker">
+                    <div class="timeline-image">
+                        <img src="src/png/esp32.webp" alt="Software Design">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

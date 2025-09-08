@@ -67,7 +67,8 @@ footer {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    -webkit-tap-highlight-color: transparent
+    -webkit-tap-highlight-color: transparent;
+    font-family: 'Courier New', monospace
 }
 
 ::selection {
@@ -1003,7 +1004,8 @@ noscript {
 .info-dp-section {
     width: 100%;
     display: flex;
-    margin-top: 30px
+    margin-top: 30px;
+    font-size: 1.5rem;
 }
 
 .about-info {
@@ -1218,14 +1220,14 @@ footer {
 
 .ProjectHeading {
     color: var(--color-white);
-    font-size: 3.4rem;
+    font-size: 3.0rem;
     font-weight: 700
 }
 
 .ProjectDescription {
-    color: gray;
-    font-size: 1.7rem;
-    font-weight: 400
+    color: white;
+    font-size: 1.75rem;
+    font-weight: bold
 }
 
 .project-buttons {
@@ -1334,45 +1336,44 @@ footer {
 footer {
     width: 100%;
     height: fit-content;
-    border-top: 1px solid var(--tech-stack-box-border-color)
-}
-
-.footer-background {
-    width: 100%;
-    height: 100vh;
-    background-color: #0b0b0b;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    z-index: 1
-}
-
-.footer-blob {
-    width: 100%;
-    height: 200px;
-    background-color: var(--color-light-purple);
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: .7
 }
 
 .footer-foreground {
-    position: absolute;
-    top: 0;
     width: 100%;
-    height: 100vh;
+    background-color: var(--color-dark-mode);
     display: flex;
-    align-items: flex-end;
     justify-content: center;
-    backdrop-filter: blur(10px)
+    align-items: center;
+    padding: 60px 0;
 }
 
 .footercontainer {
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-end
+    justify-content: center;
+}
+
+.social-media-container {
+    padding: 40px 0;
+}
+
+.social-media-container .logos {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media-container .SocialHandle {
+    width: 60px;
+    height: 60px;
+    fill: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.social-media-container a:hover .SocialHandle {
+    transform: scale(1.15);
 }
 
 .two-words {
@@ -1397,25 +1398,36 @@ footer {
 
 .social-media-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%
+    width: 100%;
+    padding: 60px 0;
+}
+
+.social-media-container .logos {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
 }
 
 .social-media-container a {
-    width: 60px;
-    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    padding: 10px;
-    border-radius: 50%;
-    border: 2px solid #e2dede;
-    position: relative;
-    box-shadow: 0 0 0 #8000ff inset;
-    transition-duration: .3s
+    transition: transform 0.3s ease;
+}
+
+.social-media-container a:hover {
+    transform: scale(1.15);
+}
+
+.SocialHandle {
+    width: 60px;
+    height: 60px;
+    fill: var(--basic-text-color);
+    transition: 0.3s ease;
 }
 
 .getintouch-heading {
@@ -2015,5 +2027,240 @@ footer {
     .landing-page-container {
         height: fit-content;
         margin-top: 100px;  
+    }
+}
+
+/* css for projects seperate html files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 12px 24px;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-5px);
+}
+
+.back-button svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    fill: currentColor;
+}
+
+.main-image-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border-radius: 30px;
+    padding: 20px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    text-align: center;
+}
+
+.main-image {
+    max-width: 100%;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-description {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(15, 20, 25, 0.8));
+    border-radius: 25px;
+    padding: 40px;
+    margin-bottom: 40px;
+    border: 1px solid #00d4ff;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.project-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #00d4ff;
+}
+
+.description-text {
+    font-size: 24px;
+    line-height: 1.8;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: 'Inter', 'Segoe UI';
+}
+
+.tech-stack {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    border-radius: 25px;
+    padding: 30px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.tech-stack h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #00d4ff;
+}
+
+.tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.tech-icon {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.tech-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.tech-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.tech-icon span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.gallery {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    border-radius: 25px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.gallery h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #00d4ff;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-10px);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, #333, #555);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.gallery-caption {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+/* Animated background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    z-index: -1;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(1deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .project-title {
+        font-size: 2rem;
+    }
+
+    .main-image {
+        height: 250px;
+    }
+
+    .tech-icons {
+        justify-content: flex-start;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
     }
 }
