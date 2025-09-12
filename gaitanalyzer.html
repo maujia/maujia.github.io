@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <!-- Back Button -->
-        <a href="index.html" class="back-button">
+        <a href="projects.html" class="back-button">
             <svg viewBox="0 0 24 24">
                 <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
             </svg>
@@ -22,75 +22,68 @@
             <h1>Hardware Gait Analyzer (Personal Project)</h1>
         </div>
 
-        <div class="timeline-container">
-            <!-- Timeline Right Side - Content -->
-            <div class="timeline-right">
-                <!-- Project Description -->
-                <div class="project-description">
-                    <h1 class="project-title">Project Description</h1>
-                    <p class="description-text">
-                        This project is a proof-of-concept low-cost gait analysis tool. This prototype uses a pair of wireless sensor modules strategically placed under the L4 vertebra and on either the left or right thigh to measure basic hip flexion and extension movements.
-                        <br><br>
-                        The project provides the possibility for a completely modular and portable gait analyzer, usable in any environment, completely wireless and requiring just a computer to analyse results. 
-                    </p>
-                </div>
-                <div class="project-description">
-                    <h1 class="project-title">Mechanical Aspect</h1>
-                    <div class="description-text">
-                        <p>• Designed and 3D-printed a custom sensor housing for the protoboard holding the microcontroller, circuit wiring, IMU sensor, and LiPo battery.</p>
-                        <br>
-                        <p>• Modified the IMU's placement and orientation on the thigh, relying on pitch and roll angles instead of the yaw angle as it's known to drift and provide increasingly wrong values the more measurements are taken.</p>
-                        <br>
-                        <p>• Used 2 sensors as the 2nd sensor placed under the L4 vertebra would provide a more accurate reference angle than using a gravity vector normal to the ground when measuring absolute hip flexion and extension.</p>
-
-                        </div>
-                </div>
-                <div class="project-description">
-                    <h1 class="project-title">Electrical Aspect</h1>
-                    <div class="description-text">
-                        <p>• Built both sensor modules on protoboards with soldered components.</p>
-                        <br>
-                        <p>• Implemented LiPo battery power through an external JST connection, wireless operation within the 3D-printed housing.</p>
-                    </div>
-                </div>
-                <div class="project-description">
-                    <h1 class="project-title">Software Aspect</h1>
-                    <div class="description-text">
-                        <p>• Collected and processed IMU angle data using Jeff Rowberg's MPU6050 library and the Arduino IDE.</p>
-                        <br>
-                        <p>• Developed Python scripts with serial and threading for Bluetooth data logging; currently expanding to WiFi/TCP for simultaneous data collection from both sensors.</p>
-                        <br>
-                        <p>• Integrated preliminary gait visualization in OpenSim's biomechanics app using their open-source GUI tools.</p>
-                    </div>
-                </div>
+        <div class="project-sections-container">
+            <!-- Project Description -->
+            <div class="project-section-box">
+                <h2 class="section-title">Project Description</h2>
+                <p class="section-text">
+                    This project is a proof-of-concept low-cost gait analysis tool. This prototype uses a pair of wireless sensor modules strategically placed under the L4 vertebra and on either the left or right thigh to measure basic hip flexion and extension movements. The project provides the possibility for a completely modular and portable gait analyzer, usable in any environment, completely wireless and requiring just a computer to analyse results.
+                </p>
             </div>
 
-            <!-- Timeline Left Side - Images -->
-            <div class="timeline-left">
-                <!-- Overview Section Image -->
-                <div class="timeline-marker">
-                    <div class="timeline-image">
-                        <img src="src/png/gait_analysis.png" alt="Main Photo">
-                    </div>
-                </div>
-                <!-- Mechanical Aspect Image -->
-                <div class="timeline-marker">
-                    <div class="timeline-image">
-                        <img src="src/png/cad_sensormodule.png" alt="Mechanical Design">
-                    </div>
-                </div>
-                <!-- electrical Aspect Image -->
-                <div class="timeline-marker">
-                    <div class="timeline-image">
-                        <img src="src/png/isometric_photo_rmvbg.png" alt="Electrical Design" style="transform: scale(0.8); transform-origin: center;">
-                    </div>
-                </div>
-                <!-- Software Aspect Image -->
-                <div class="timeline-marker">
-                    <div class="timeline-image">
-                        <img src="src/png/esp32.webp" alt="Software Design">
-                    </div>
-                </div>
+            <!-- Mechanical Aspect -->
+            <div class="project-section-box">
+                <h2 class="section-title">Mechanical Aspect</h2>
+                <p class="section-text">
+                    • Designed and 3D-printed a custom sensor housing for the protoboard holding the microcontroller, circuit wiring, IMU sensor, and LiPo battery. 
+                </p>
+                <p class="section-text">
+                    • Modified the IMU's placement and orientation on the thigh, relying on pitch and roll angles instead of the yaw angle as it's known to drift and provide increasingly wrong values the more measurements are taken. 
+                </p>
+                <p class="section-text">
+                    • Used 2 sensors as the 2nd sensor placed under the L4 vertebra would provide a more accurate reference angle than using a gravity vector normal to the ground when measuring absolute hip flexion and extension.
+                </p>
+            </div>
+
+            <!-- Electrical Aspect -->
+            <div class="project-section-box">
+                <h2 class="section-title">Electrical Aspect</h2>
+                <p class="section-text">
+                    • Built both sensor modules on protoboards with soldered components. 
+                </p>
+                <p class="section-text">
+                    • Implemented a LiPo battery through an external JST connection for wireless operation within the 3D-printed housing.
+                </p>
+            </div>
+
+            <!-- Software Aspect -->
+            <div class="project-section-box">
+                <h2 class="section-title">Software Aspect</h2>
+                <p class="section-text">
+                    • Collected and processed IMU angle data using Jeff Rowberg's MPU6050 library and the Arduino IDE.
+                </p>
+                <p class="section-text">
+                    • Developed Python scripts with serial and threading for Bluetooth data logging; currently expanding to WiFi/TCP for simultaneous data collection from both sensors.
+                </p>
+                <p class="section-text">
+                    • Integrated preliminary gait visualization in OpenSim's biomechanics app using their open-source GUI tools.
+                </p>
+            </div>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="project-gallery">
+            <div class="gallery-item">
+                <img src="src/png/isometric_photo_rmvbg.png" alt="Sensor Module" class="gallery-image">
+                <p class="image-title">Sensor Module</p>
+            </div>
+            <div class="gallery-item">
+                <img src="src/png/cad_sensormodule.png" alt="Initial CAD Design" class="gallery-image">
+                <p class="image-title">Initial Cad Design</p>
+            </div>
+            <div class="gallery-item">
+                <img src="src/png/esp32.webp" alt="Microcontroller Used" class="gallery-image">
+                <p class="image-title">Microcontroller Used</p>
             </div>
         </div>
     </div>

@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <!-- Back Button -->
-        <a href="index.html" class="back-button">
+        <a href="projects.html" class="back-button">
             <svg viewBox="0 0 24 24">
                 <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
             </svg>
@@ -22,51 +22,45 @@
             <h1>Automated Fluid Dispenser (AFD)</h1>
         </div>
 
-        <div class="timeline-container">
-            <!-- Timeline Right Side - Content -->
-            <div class="timeline-right">
-                <!-- Project Description -->
-                <div class="project-description">
-                    <h1 class="project-title">Project Description</h1>
-                    <p class="description-text">
-                        A prototype fluid dispenser for use in medical facilities with hands-free dispensing, using an IR sensor, pump, vials, turntable and a custom gearbox. An idea based on Vancouver's pilot project machine called MySafe.
-                    </p>
-                </div>
-                <div class="project-description">
-                    <h1 class="project-title">Mechanical Aspect</h1>
-                    <div class="description-text">
-                        <p>• Modelled & 3D printed the main structure of the gearbox & fitted it with a 5-gear, 167:1 gear ratio, focusing on high torque for more precise vial rotations and alignment with dispensing nozzle </p>
-                        
-                    </div>
-                </div>
-                <div class="project-description">
-                    <h1 class="project-title">Software Aspect</h1>
-                    <div class="description-text">
-                        <p>• Integrated all dispenser components using a control loop, running on an Arduino Uno using C code.</p>
-                    </div>
-                </div>
+        <div class="project-sections-container">
+            <!-- Project Description -->
+            <div class="project-section-box">
+                <h2 class="section-title">Project Description</h2>
+                <p class="section-text">
+                    A prototype fluid dispenser for use in medical facilities with hands-free dispensing, using an IR sensor, pump, vials, turntable and a custom gearbox. An idea based on Vancouver's pilot project machine called MySafe.
+                </p>
             </div>
 
-            <!-- Timeline Left Side - Images -->
-            <div class="timeline-left">
-                <!-- Overview Section Image -->
-                <div class="timeline-marker">
-                    <div class="timeline-image">
-                        <img src="src/png/fluiddispenser_schematic.jpg" alt="Main Photo">
-                    </div>
-                </div>
-                <!-- Mechanical Aspect Image -->
-                <div class="timeline-marker">
-                    <div class="timeline-image">
-                        <img src="src/png/sideview_gearbx.png" alt="Side View of Gearbox">
-                    </div>
-                </div>
-                <!-- Software Aspect Image -->
-                <div class="timeline-marker">
-                    <div class="timeline-image">
-                        <img src="src/png/arduinouno.jpg" alt="Software Design">
-                    </div>
-                </div>
+            <!-- Mechanical Aspect -->
+            <div class="project-section-box">
+                <h2 class="section-title">Mechanical Aspect</h2>
+                <p class="section-text">
+                    • Modelled & 3D printed the main structure of the gearbox & fitted it with a 5-gear, 167:1 gear ratio, focusing on high torque for more precise vial rotations and alignment with dispensing nozzle.
+                </p>
+            </div>
+
+            <!-- Software Aspect -->
+            <div class="project-section-box">
+                <h2 class="section-title">Software Aspect</h2>
+                <p class="section-text">
+                    • Integrated all dispenser components using a control loop, running on an Arduino Uno using C code.
+                </p>
+            </div>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="project-gallery">
+            <div class="gallery-item">
+                <img src="src/png/fluiddispenser_schematic.jpg" alt="Fluid Dispenser Schematic" class="gallery-image">
+                <p class="image-title">Fluid Dispenser Schematic</p>
+            </div>
+            <div class="gallery-item">
+                <img src="src/png/sideview_gearbx.png" alt="Gearbox Side View" class="gallery-image">
+                <p class="image-title">Gearbox Side View</p>
+            </div>
+            <div class="gallery-item">
+                <img src="src/png/fluidD_cad.jpg" alt="Fluid Dispenser Drawing" class="gallery-image">
+                <p class="image-title">Fluid dispenser drawing</p>
             </div>
         </div>
     </div>
