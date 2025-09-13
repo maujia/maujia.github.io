@@ -31,6 +31,14 @@ noscript {
 .main,
 body {
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 /* Simple Header Navigation */
@@ -80,13 +88,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     text-align: left;
     gap: 30px;
     height: auto;
-    padding: 0 80px;
+    padding: 0;
     max-width: none;
     margin: 0;
+    width: 100%;
 }
 
 .main-name {
@@ -95,6 +104,7 @@ body {
     color: #4A90E2;
     margin: 0;
     line-height: 1.2;
+    font-family: 'Courier New', monospace;
 }
 
 .subtitle {
@@ -103,6 +113,7 @@ body {
     color: #cccccc;
     margin: 0;
     line-height: 1.4;
+    font-family: 'Courier New', monospace;
 }
 
 .home-nav {
@@ -119,6 +130,7 @@ body {
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
+    font-family: 'Courier New', monospace;
 }
 
 .home-nav .nav-link:hover {
@@ -397,7 +409,8 @@ header {
     justify-content: center;
     overflow-y: hidden;
     background-image: url(src/svg/Pulse-0.4s-200px.svg);
-    background-size: 10%
+    background-size: 10%;
+    display: none;
 }
 
 .navbar,
@@ -603,12 +616,13 @@ noscript {
 
 .landing-page-container {
     width: 100%;
-    height: calc(100vh - 115px);
+    height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
-    padding-top: 100px;
+    justify-content: center;
+    padding: 100px 80px 0 80px;
+    text-align: left;
 }
 
 .text-content {
