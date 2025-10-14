@@ -494,121 +494,64 @@ main {
    8. RESPONSIVE DESIGN
    =================================== */
 
+@media (max-width: 1024px) {
+  .project-boxes-div {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px 40px;
+  }
+}
+
 @media (max-width: 768px) {
-    /* Home Section */
-    .home-content {
-        padding: 80px 40px 0 40px;
-    }
-    
-    .main-name {
-        font-size: 4rem;
-    }
-    
-    .subtitle {
-        font-size: 2rem;
-    }
-    
-    .home-nav .nav-link {
-        font-size: 2rem;
-    }
-    
-    /* About Section */
-    .about-section-container {
-        padding-left: 40px;
-    }
-    
-    .about-content-wrapper {
-        flex-direction: column;
-        padding: 100px 40px 60px;
-        gap: 40px;
-    }
+  .home-content {
+    padding: 60px 20px;
+    text-align: center;
+  }
 
-    .about-image img {
-        max-width: 300px;
-    }
-    
-    .about-text h1,
-    .about-text-left h1 {
-        font-size: 6rem;
-    }
-    
-    .about-text p,
-    .about-text-left p {
-        font-size: 2rem;
-    }
-    
-    .section-title {
-        font-size: 6rem;
-        margin: 0 0 30px 0;
-    }
+  .main-name {
+    font-size: 3.5rem;
+  }
 
-    /* Projects Section */
-    .projects-section-container {
-        padding-left: 40px;
-    }
-    
-    .project-boxes-div {
-        padding: 30px 10px;
-    }
-    
-    .info-div {
-        flex-direction: column;
-    }
-    
-    .faviconforProject {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .ProjectHeading {
-        font-size: 2rem;
-    }
-    
-    .ProjectDescription {
-        font-size: 1.4rem;
-    }
-    
-    /* Skills Section */
-    .skills-section-container {
-        padding-left: 40px;
-    }
-    
-    /* Project Pages */
-    .container {
-        padding: 20px 15px;
-    }
-    
-    .project-sections-container {
-        padding: 10px;
-        gap: 15px;
-    }
-    
-    .project-section-box {
-        padding: 15px;
-    }
-    
-    .section-title {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-    
-    .section-text {
-        font-size: 12px;
-    }
-    
-    .project-gallery {
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-    }
-    
-    .project-gallery .gallery-image {
-        width: 250px;
-        height: 250px;
-    }
-    
-    .image-title {
-        font-size: 14px;
-    }
-    
+  .subtitle {
+    font-size: 2rem;
+  }
+
+  .project-boxes-div {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .about-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  .skills-list {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-name {
+    font-size: 2.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.6rem;
+  }
+
+  .ProjectHeading {
+    font-size: 1.6rem;
+  }
+
+  .ProjectDescription {
+    font-size: 1.4rem;
+  }
 }
