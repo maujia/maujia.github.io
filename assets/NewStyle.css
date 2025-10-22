@@ -1,0 +1,77 @@
+/* Common styles for all pages */
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Main page specific styles */
+.social-links {
+  margin-bottom: 3rem;
+}
+
+.social-links a {
+  color: #0066cc;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+/* Common list styles */
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+.project-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* Project page specific styles */
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+
+.image-caption {
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  margin-bottom: 2rem;
+}
