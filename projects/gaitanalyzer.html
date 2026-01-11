@@ -20,19 +20,21 @@
 
   <h2>Key Features</h2>
   <ul>
-    <li>Custom wireless sensor modules using ESP32 microcontrollers and IMU sensors</li>
+    <li>Custom wireless sensor modules using ESP32 microcontrollers and MPU6050 inertial measurement sensors</li>
     <li>3D-printed sensor housing for protoboard, circuit wiring, and LiPo battery</li>
-    <li>Wireless operation through LiPo batteries with JST connections</li>
-    <li>Custom C driver using ESP's I²C drivers to read and filter raw IMU data using the sensor's onboard digital motion processor.</li>
-    <li>Integration with OpenSim's biomechanics application for motion visualization</li>
+    <li>Wireless operation and communication through LiPo batteries and built-in ESP-NOW protocol</li>
+    <li>Data filtered using a Madgwick filter and exponential smoothing</li>
+    <li>Motion analysis performed by looking at the data’s peak angle values and steadiness with Python & SciPy</li>
   </ul>
 
   <h2>Images</h2>
-
   <img src="../assets/img/isometric_photo_rmvbg.png" alt="Sensor Module">
   <p class="image-caption">Assembled sensor module with 3D-printed housing</p>
 
   <img src="../assets/img/cad_sensormodule.png" alt="Initial CAD Design">
   <p class="image-caption">Initial CAD design of the sensor module</p>
+
+  <img src="../assets/img/image.png" alt = "Sample Analysis" style="max-width: 75%; height: auto;"">
+  <p class ="image-caption">Sample Analysis of a hip flexion angle dataset</p>
 </body>
 </html>
