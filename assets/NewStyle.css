@@ -52,13 +52,19 @@ li {
 }
 
 .project-link {
-  color: #0066cc;
+  display: inline-block;
+  padding: 2.5px 10px;
+  background-color: #3A5475;
+  color: white;
   text-decoration: none;
   font-weight: 500;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  margin-right: 0.5rem;
 }
 
 .project-link:hover {
-  text-decoration: underline;
+  background-color: #0052a3;
 }
 
 /* Project page specific styles */
