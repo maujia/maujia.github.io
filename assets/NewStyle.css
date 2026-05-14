@@ -1,33 +1,159 @@
-/* Common styles for all pages */
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Variables ── */
+:root {
+  --bg: #faf9f7;
+  --accent: #3a5faa;
+  --text: #333;
+  --muted: #666;
+}
+
+/* ── Default page styling: PROJECT PAGES ── */
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 00;
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
-  color: #333;
+  padding: 1rem;
+  padding-left: 4rem;
+  color: var(--text);
+  background: var(--bg);
 }
 
+/* ── Front/home page layout only ── */
+body.home-page {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+}
+
+/* ── Sidebar only on home page ── */
+body.home-page header {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 28px;
+  width: 300px;
+  min-width: 200px;
+  min-height: 100vh;
+  height: 100vh;
+  background: rgba(26, 58, 143, 0.12);
+  border-right: 1px solid rgba(26, 58, 143, 0.2);
+  position: sticky;
+  top: 0;
+}
+body.home-page main {
+  flex: 1;
+  /*max-width: 800px;*/
+  padding: 2rem;
+}
+
+/* ── Sidebar content ── */
+.header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  flex: 1;
+}
+
+.sidebar-now {
+  margin-bottom: 20px;
+}
+
+.sidebar-now h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.sidebar-now p {
+  font-size: 0.90rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.header-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid rgba(26, 58, 143, 0.25);
+  padding-top: 20px;
+  margin-top: auto;
+}
+
+.header-socials a {
+  font-size: 0.95rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.header-socials a:hover {
+  color: #1a2f6e;
+  text-decoration: underline;
+}
+/* ── Sidebar profile photo ── 
+
+.sidebar-photo {
+  margin-bottom: 24px;
+}
+
+.sidebar-photo img {
+  width: 60%;
+  aspect-ratio: 1.10;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid rgba(26, 58, 143, 0.5);
+  display: block;
+  max-width: none;
+}
+*/
+/* ── Typography ── */
 h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-weight: 500;
+  color: #111;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: 500;
+  color: #111;
+}
+
+h3 {
+  font-weight: 300;
 }
 
 .subtitle {
   font-size: 1.1rem;
-  color: #666;
+  color: var(--muted);
   margin-bottom: 2rem;
 }
 
-/* Main page specific styles */
+/* ── Lists ── */
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* ── Links ── */
 .social-links {
   margin-bottom: 3rem;
 }
@@ -38,20 +164,18 @@ h2 {
   margin-right: 1rem;
 }
 
-.social-links a:hover {
+.social-links a:hover,
+a.project-link:hover {
   text-decoration: underline;
 }
 
-/* Common list styles */
-ul {
-  padding-left: 1.5rem;
+a.project-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 300;
 }
 
-li {
-  margin-bottom: 0.5rem;
-}
-
-/* Project page specific styles */
+/* ── Project pages ── */
 img {
   max-width: 45%;
   height: auto;
@@ -60,33 +184,64 @@ img {
   display: block;
 }
 
-/* Center all images */
-img:nth-of-type(1),
-img:nth-of-type(2),
-img:nth-of-type(3) {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .image-caption {
   font-style: italic;
-  color: #666;
+  color: var(--muted);
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .back-button {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #9E9E9E;
-  color: white;
+  padding: 6px 14px;
+  background: rgba(26, 58, 143, 0.1);
+  color: var(--accent);
   text-decoration: none;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid rgba(26, 58, 143, 0.25);
+  font-size: 0.85rem;
+  z-index: 10;
 }
 
 .back-button:hover {
-  background-color: #2d54b3;
+  background: rgba(26, 58, 143, 0.2);
+  color: #1a2f6e;
+}
+
+/* ── Responsive home page ── */
+@media (max-width: 640px) {
+  body.home-page {
+    flex-direction: column;
+  }
+
+  body.home-page header {
+    width: 100%;
+    min-width: unset;
+    min-height: unset;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 16px 24px;
+    gap: 16px;
+    border-right: none;
+    border-bottom: 1px solid rgba(26, 58, 143, 0.2);
+    position: static;
+  }
+
+  .header-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .header-socials {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+    flex-direction: row;
+    gap: 12px;
+  }
 }

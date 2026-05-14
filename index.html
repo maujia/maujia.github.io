@@ -5,32 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arjun Mauji</title>
   <link rel="icon" type="image/x-icon" href="assets/img/gears_favicon.jpg" />
-  <link rel="stylesheet" href="assets/NewStyle.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="assets/NewStyle.css" rel="stylesheet">
 </head>
+<body class="home-page">
 
-<body>
-  <h1>Arjun Mauji</h1>
-  <p class="subtitle">3rd Year Mechanical Engineering Student @ Queen's University</p>
+  <header>
+    
+    <div class="header-right">
+    <!--  
+      <div class="sidebar-photo">
+        <img src="assets/img/IMG_2521.jpeg" alt="Arjun Mauji" />
+      </div>
+    -->
+      <div class="sidebar-now">
+        <h3>Currently Learning</h3>
+        <p>- Computer Architecture, follow along on instagram (@arjunzrbuilds) </p>
+        <p>- GPU Programming</p>     
+        <p>- RTOS applications in Aerospace</p>
+      </div>
+      <div class = "sidebar-now">
+        <h3> other interests</h3>
+        <p>- Sports (swimming, soccer, basketball, running)</p>
+        <p>- Investing (stock market)</p>
+        <p>- Science yt channels (Veritasium)</p>
+        <p>- Cooking (or baking)</p>
+      </div>
+      <div class="header-socials">
+        <a href="https://github.com/maujia" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/arjun-mauji-b67610215/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:22cnr1@queensu.ca">Email</a>
+        <a href="src/pdf/Resume - Arjun Mauji.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </div>
+  </header>
 
-  <div class="social-links">
-    <a href="https://github.com/maujia">GitHub</a>
-    <a href="https://www.linkedin.com/in/arjun-mauji-b67610215/">LinkedIn</a>
-    <a href="mailto:22cnr1@queensu.ca">Email</a>
-    <a href="src/pdf/Electrical resume - arjun mauji.pdf">Resume</a>
-  </div>
+  <main>
+    <h1>Arjun Mauji</h1>
+    <p class="subtitle">3rd Year Mechanical Engineering Student @ Queen's University</p>
+    
 
-  <h2>About Me</h2>
-  <p>
-    Currently in 3rd year Engineering working on embedded software projects, and looking for opportunities in the biomedical space.
-    This interest stems from my 2nd year, where I worked on the mechanical design for the an automative design team at Queen's and found that my interests lay more in bare metal programming.
-    Outside of school, my hobbies include watching and playing sports, watching Veritaseum videos and exploring new countries.
-  </p>
+    <h3 style="font-weight: 400; font-size: 1.4rem;">
+      <span style="color:#023E8A;">Hi!</span> My name's Arjun, I'm a Mechanical Engineering Student at Queen's University, currently exploring <b>Systems/Embedded</b> programming in the field of <b>Aerospace</b>.
+    </h3>
+    
+    <h2>Past projects</h2>
+    <ul style = "list-style-type: '- ';">
+      <li><a href="projects/gaitanalyzer.html" class="project-link">Hardware Motion Analyzer</a><br>- Designed a wireless prototype motion analysis tool with custom sensor modules under $25 each.</li>
+      
+      <li> Queen's Off-Road Vehicle Design Team (BAJA)
 
-  <h2>Projects - past and present</h2>
-  <ul>
-    <li><a href="projects/gaitanalyzer.html" class="project-link">Hardware Motion Analyzer</a><br>- Designed a wireless prototype motion analysis tool with custom sensor modules under $25 each.
-    <li><a href="projects/cvt.html" class="project-link">Queen's BAJA Off-Road Vehicle design team</a><br>- Learning how to write firmware on STM32s to collect temp data from the vehicle's transmission belt.<br>- Working on making the team's sensor data logging libraries use RTOS on the STM32s.<br>- Previously worked on the CAD work for the CVT system.</li>
-    <li><a href="projects/fluiddispenser.html" class="project-link">Automated Fluid Dispenser</a><br> - Prototyped an automated fluid dispenser with hands-free dispensing using an Arduino, IR sensor, pump and custom gearbox</li>
-  </ul>
+      <div style="margin-left:20px; margin-top:8px;">
+        <a href="projects/cvt.html" class="project-link">Mechanical Subteam</a><br>
+        - Assisted with the CAD modelling and manufacturing work for the vehicle's continuously variable transmission system.
+      </div>
+
+      <div style="margin-left:20px; margin-top:8px;">
+        <span style="color:#3a5faa;">Embedded Subteam</span><br>
+        - Learning how to write firmware on STM32s to collect real-time data from the vehicle's transmission system.
+      </div>
+    </li>
+
+      <li><a href="projects/fluiddispenser.html" class="project-link">Automated Fluid Dispenser</a><br>- Prototyped an automated fluid dispenser with hands-free dispensing using an Arduino, IR sensor, pump and custom gearbox</li>    
+    </ul>
+  </main>
+
 </body>
 </html>
