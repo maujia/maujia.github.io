@@ -10,169 +10,250 @@
   --bg: #faf9f7;
   --accent: #3a5faa;
   --text: #333;
-  --muted: #666;
+  --muted: #888;
+  --border: #e2e0db;
 }
 
-/* ── Default page styling: PROJECT PAGES ── */
+/* ── Base (project pages) ── */
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-weight: 00;
-  line-height: 1.6;
-  max-width: 800px;
+  font-weight: 400;
+  line-height: 1.7;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 1rem;
-  padding-left: 4rem;
+  padding: 4rem 2rem;
   color: var(--text);
   background: var(--bg);
 }
 
-/* ── Front/home page layout only ── */
+/* ── Home page reset ── */
 body.home-page {
   max-width: none;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  display: flex;
+  display: block;
 }
 
-/* ── Sidebar only on home page ── */
-body.home-page header {
-  display: flex;
-  flex-direction: column;
-  padding: 40px 28px;
-  width: 300px;
-  min-width: 200px;
-  min-height: 100vh;
-  height: 100vh;
-  background: rgba(26, 58, 143, 0.12);
-  border-right: 1px solid rgba(26, 58, 143, 0.2);
-  position: sticky;
-  top: 0;
-}
-body.home-page main {
-  flex: 1;
-  /*max-width: 800px;*/
-  padding: 2rem;
-}
-
-/* ── Sidebar content ── */
-.header-right {
+/* ── Sticky side nav ── */
+.side-nav {
+  position: fixed;
+  top: 50%;
+  left: 2.5rem;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  flex: 1;
+  gap: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 100;
 }
 
-.sidebar-now {
-  margin-bottom: 20px;
+.side-nav.visible {
+  opacity: 1;
+  pointer-events: all;
 }
 
-.sidebar-now h3 {
-  font-size: 1rem;
+.nav-link {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transition: color 0.15s, font-weight 0.15s;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-link.active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-inner {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.hero h1 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 1.5rem;
+}
+
+.hero-body {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: #444;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hero-socials a {
+  font-size: 0.88rem;
+  color: #3552b4ab;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+
+.hero-socials a:hover {
+  color: #043a6c;
+}
+
+.dot {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ── Main content ── */
+main {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+}
+
+/* ── Divider ── */
+.divider {
+  width: 40%;
+  margin: 0 auto;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Content sections ── */
+.content-section {
+  padding: 3.5rem 0;
+}
+
+.content-section h2 {
+  font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 8px;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
 }
 
-.sidebar-now p {
-  font-size: 0.90rem;
-  color: #555;
+/* ── Section lists ── */
+.section-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section-list li {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 0;
+}
+
+.section-list li p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 4px;
   line-height: 1.6;
 }
 
-.header-socials {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-top: 1px solid rgba(26, 58, 143, 0.25);
-  padding-top: 20px;
-  margin-top: auto;
+.section-list.plain li {
+  font-size: 0.92rem;
+  color: #555;
 }
 
-.header-socials a {
-  font-size: 0.95rem;
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 300;
+.sub-item {
+  margin-left: 1rem;
+  margin-top: 0.6rem;
 }
 
-.header-socials a:hover {
-  color: #1a2f6e;
-  text-decoration: underline;
-}
-/* ── Sidebar profile photo ── 
-
-.sidebar-photo {
-  margin-bottom: 24px;
-}
-
-.sidebar-photo img {
-  width: 60%;
-  aspect-ratio: 1.10;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 3px solid rgba(26, 58, 143, 0.5);
-  display: block;
-  max-width: none;
-}
-*/
-/* ── Typography ── */
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #111;
-}
-
-h2 {
-  font-size: 1.6rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 500;
-  color: #111;
-}
-
-h3 {
-  font-weight: 300;
-}
-
-.subtitle {
-  font-size: 1.1rem;
+/* ── Bullet ── */
+.bullet {
   color: var(--muted);
-  margin-bottom: 2rem;
-}
-
-/* ── Lists ── */
-ul {
-  padding-left: 1.5rem;
-}
-
-li {
-  margin-bottom: 0.5rem;
+  margin-right: 0.4rem;
+  font-size: 0.85rem;
 }
 
 /* ── Links ── */
-.social-links {
-  margin-bottom: 3rem;
-}
-
-.social-links a {
-  color: #0066cc;
-  text-decoration: none;
-  margin-right: 1rem;
-}
-
-.social-links a:hover,
-a.project-link:hover {
-  text-decoration: underline;
-}
-
 a.project-link {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 300;
+  color: #3552b4ab;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 400;
+  transition: color 0.15s;
+}
+
+a.project-link:hover {
+  color: #043a6c;
+}
+
+.muted-link {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ── Footer ── */
+.page-footer {
+  padding: 3rem 0 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.page-footer a {
+  font-size: 0.85rem;
+  color: #3552b4ab;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+
+.page-footer a:hover {
+  color: #043a6c;
+}
+
+/* ── Shared typography ── */
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #111;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
 }
 
 /* ── Project pages ── */
@@ -194,54 +275,38 @@ img {
 .back-button {
   position: fixed;
   top: 1.5rem;
-  left: 1.5rem;
+  left: calc(50% - 340px);
   display: inline-block;
   padding: 6px 14px;
-  background: rgba(26, 58, 143, 0.1);
+  background: rgba(26, 58, 143, 0.07);
   color: var(--accent);
   text-decoration: none;
   border-radius: 6px;
-  border: 1px solid rgba(26, 58, 143, 0.25);
-  font-size: 0.85rem;
+  border: 1px solid rgba(26, 58, 143, 0.2);
+  font-size: 0.82rem;
   z-index: 10;
 }
 
 .back-button:hover {
-  background: rgba(26, 58, 143, 0.2);
+  background: rgba(26, 58, 143, 0.15);
   color: #1a2f6e;
 }
 
-/* ── Responsive home page ── */
-@media (max-width: 640px) {
-  body.home-page {
-    flex-direction: column;
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .side-nav {
+    display: none;
   }
 
-  body.home-page header {
-    width: 100%;
-    min-width: unset;
-    min-height: unset;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 16px 24px;
-    gap: 16px;
-    border-right: none;
-    border-bottom: 1px solid rgba(26, 58, 143, 0.2);
-    position: static;
+  .hero-inner {
+    padding: 0 1.5rem;
   }
 
-  .header-right {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
+  main {
+    padding: 0 1.5rem 4rem;
   }
 
-  .header-socials {
-    border-top: none;
-    padding-top: 0;
-    margin-top: 0;
-    flex-direction: row;
-    gap: 12px;
+  .back-button {
+    left: 1rem;
   }
 }

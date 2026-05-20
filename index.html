@@ -12,65 +12,136 @@
 </head>
 <body class="home-page">
 
-  <header>
-    
-    <div class="header-right">
-    <!--  
-      <div class="sidebar-photo">
-        <img src="assets/img/IMG_2521.jpeg" alt="Arjun Mauji" />
-      </div>
-    -->
-      <div class="sidebar-now">
-        <h3>Currently Learning</h3>
-        <p>- Computer Architecture, follow along on instagram (@arjunzrbuilds) </p>
-        <p>- GPU Programming</p>     
-        <p>- RTOS applications in Aerospace</p>
-      </div>
-      <div class = "sidebar-now">
-        <h3> other interests</h3>
-        <p>- Sports (swimming, soccer, basketball, running)</p>
-        <p>- Investing (stock market)</p>
-        <p>- Science yt channels (Veritasium)</p>
-        <p>- Cooking (or baking)</p>
-      </div>
-      <div class="header-socials">
-        <a href="https://github.com/maujia" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/arjun-mauji-b67610215/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:22cnr1@queensu.ca">Email</a>
+  <nav class="side-nav" id="sideNav">
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#writing" class="nav-link">Writing</a>
+    <a href="#learning" class="nav-link">Currently Learning</a>
+    <a href="#interests" class="nav-link">Other Interests</a>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <h1>Arjun Mauji</h1>
+      <p class="hero-body">
+        Mechanical Engineering Student, currently exploring Systems/Embedded programming in the field of Aerospace.
+      </p>
+      <div class="hero-socials">
         <a href="src/pdf/Resume - Arjun Mauji.pdf" target="_blank" rel="noopener">Resume</a>
+        <span class="dot">·</span>
+        <a href="https://github.com/maujia" target="_blank" rel="noopener">GitHub</a>
+        <span class="dot">·</span>
+        <a href="https://www.linkedin.com/in/arjun-mauji-b67610215/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="dot">·</span>
+        <a href="mailto:22cnr1@queensu.ca">Email</a>
       </div>
     </div>
-  </header>
+  </section>
 
   <main>
-    <h1>Arjun Mauji</h1>
-    <p class="subtitle">3rd Year Mechanical Engineering Student @ Queen's University</p>
-    
 
-    <h3 style="font-weight: 400; font-size: 1.4rem;">
-      <span style="color:#023E8A;">Hi!</span> My name's Arjun, I'm a Mechanical Engineering Student at Queen's University, currently exploring <b>Systems/Embedded</b> programming in the field of <b>Aerospace</b>.
-    </h3>
-    
-    <h2>Past projects</h2>
-    <ul style = "list-style-type: '- ';">
-      <li><a href="projects/gaitanalyzer.html" class="project-link">Hardware Motion Analyzer</a><br>- Designed a wireless prototype motion analysis tool with custom sensor modules under $25 each.</li>
-      
-      <li> Queen's Off-Road Vehicle Design Team (BAJA)
+    <section class="content-section" id="projects">
+      <h2>Projects</h2>
+      <ul class="section-list">
+        <li>
+          <span class="bullet">&gt;</span><a href="projects/gaitanalyzer.html" class="project-link">Hardware Motion Analyzer</a>
+          <p>Designed a wireless prototype motion analysis tool with custom sensor modules under $25 each.</p>
+        </li>
+        <li>
+          <span class="bullet">&gt;</span><a href="projects/cvt.html" class="project-link">Continuously Variable Transmission (CVT) Modelling</a>
+          <p>Assisted with the CAD modelling and manufacturing work for the CVT system as apart of the Queen's off-road vehicle design team (baja sae).</p>
+        </li>
+        <li>
+          <span class="bullet">&gt;</span><span class="project-link">Embedded Subteam - Queen's Baja SAE</span>
+          <p>Learning how to write firmware on STM32s to collect real-time data from the vehicle's transmission system.</p>
+        </li>
+        <li>
+          <span class="bullet">&gt;</span><a href="projects/fluiddispenser.html" class="project-link">Automated Fluid Dispenser</a>
+          <p>Prototyped an automated fluid dispenser with hands-free dispensing using an Arduino, IR sensor, pump and custom gearbox.</p>
+        </li>
+      </ul>
+    </section>
 
-      <div style="margin-left:20px; margin-top:8px;">
-        <a href="projects/cvt.html" class="project-link">Mechanical Subteam</a><br>
-        - Assisted with the CAD modelling and manufacturing work for the vehicle's continuously variable transmission system.
-      </div>
+    <div class="divider"></div>
 
-      <div style="margin-left:20px; margin-top:8px;">
-        <span style="color:#3a5faa;">Embedded Subteam</span><br>
-        - Learning how to write firmware on STM32s to collect real-time data from the vehicle's transmission system.
-      </div>
-    </li>
+    <section class="content-section" id="writing">
+      <h2>Writing</h2>
+      <ul class="section-list">
+        <li>
+          <span class="bullet">&gt;</span><a href="https://arjunmauji.notion.site/An-experiment-to-explore-CTE-mismatch-in-microelectronics-packaging-363000c24d8480588099e7f1a4ac33b4" class="project-link">Microelectronics Packaging</a>
+          <p>Summary of my introductory reading on microelectronics packaging and a small FEA experiment to understand the effects of varying material thermal expansion.</p>
+        </li>
+      </ul>
+    </section>
 
-      <li><a href="projects/fluiddispenser.html" class="project-link">Automated Fluid Dispenser</a><br>- Prototyped an automated fluid dispenser with hands-free dispensing using an Arduino, IR sensor, pump and custom gearbox</li>    
-    </ul>
+    <div class="divider"></div>
+
+    <section class="content-section" id="learning">
+      <h2>Currently Learning</h2>
+      <ul class="section-list plain">
+        <li><span class="bullet">&gt;</span> Computer Architecture — follow along on Instagram <a href="https://instagram.com/arjunzrbuilds" class="project-link">@arjunzrbuilds</a></li>
+        <li><span class="bullet">&gt;</span> GPU Programming</li>
+        <li><span class="bullet">&gt;</span> RTOS applications in Aerospace</li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="content-section" id="interests">
+      <h2>Other Interests</h2>
+      <ul class="section-list plain">
+        <li><span class="bullet">&gt;</span> Sports — swimming, soccer, basketball, running</li>
+        <li><span class="bullet">&gt;</span> Investing — stock market</li>
+        <li><span class="bullet">&gt;</span> Science YouTube — Veritasium</li>
+        <li><span class="bullet">&gt;</span> Cooking and baking</li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <footer class="page-footer">
+      <a href="https://github.com/maujia" target="_blank" rel="noopener">GitHub</a>
+      <span class="dot">·</span>
+      <a href="https://www.linkedin.com/in/arjun-mauji-b67610215/" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="dot">·</span>
+      <a href="mailto:22cnr1@queensu.ca">Email</a>
+      <span class="dot">·</span>
+      <a href="src/pdf/Resume - Arjun Mauji.pdf" target="_blank" rel="noopener">Resume</a>
+    </footer>
+
   </main>
+
+  <script>
+    const hero = document.getElementById('hero');
+    const sideNav = document.getElementById('sideNav');
+
+    const heroObserver = new IntersectionObserver(([entry]) => {
+      sideNav.classList.toggle('visible', !entry.isIntersecting);
+    }, { threshold: 0.1 });
+
+    heroObserver.observe(hero);
+
+    const sections = document.querySelectorAll('.content-section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(s => sectionObserver.observe(s));
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 
 </body>
 </html>
