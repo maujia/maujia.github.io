@@ -5,37 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Automated Fluid Dispenser (AFD)</title>
   <link rel="icon" type="image/x-icon" href="../assets/img/gears_favicon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/NewStyle.css" />
 </head>
+<body class="project-page">
 
-<body>
-  <a href="../index.html" class="back-button">← Back</a>
-  <h1>Automated Fluid Dispenser (AFD)</h1>
-  <p class="subtitle">Hands-Free Medical Dispensing Prototype</p>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&#x2715;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+  </div>
 
-  <h2>Project Description</h2>
-  <p>
-    A prototype fluid dispenser for use in medical facilities with hands-free dispensing, using an IR sensor, pump, vials, turntable and a custom gearbox. An idea based on Vancouver's pilot project machine called MySafe.
-  </p>
+  <div class="project-header">
+    <a href="../index.html#projects" class="back-link">&#8592; Back</a>
+    <h1>Automated Fluid Dispenser (AFD)</h1>
+    <p class="subtitle">Hands-Free Medical Dispensing Prototype</p>
+  </div>
 
-  <h2>Key Features</h2>
-  <ul>
-    <li>Modelled & 3D printed the main structure of the gearbox with a 5-gear, 167:1 gear ratio</li>
-    <li>High torque design for precise vial rotations and alignment with dispensing nozzle</li>
-    <li>Integrated all dispenser components using a control loop on an Arduino Uno</li>
-    <li>Hands-free operation through IR sensor detection</li>
-    <li>C programming for embedded control system</li>
-  </ul>
+  <div class="project-body">
 
-  <h2>Images</h2>
+    <div class="project-section">
+      <h2>Project Description</h2>
+      <p>
+        A prototype fluid dispenser for use in medical facilities with hands-free dispensing, using an IR sensor, pump, vials, turntable and a custom gearbox. An idea based on Vancouver's pilot project machine called MySafe.
+      </p>
+    </div>
 
-  <img src="../assets/img/fluiddispenser_schematic.jpg" alt="Fluid Dispenser Schematic">
-  <p class="image-caption">System schematic showing component integration</p>
+    <div class="project-section">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Modelled & 3D printed the main structure of the gearbox with a 5-gear, 167:1 gear ratio</li>
+        <li>High torque design for precise vial rotations and alignment with dispensing nozzle</li>
+        <li>Integrated all dispenser components using a control loop on an Arduino Uno</li>
+        <li>Hands-free operation through IR sensor detection</li>
+        <li>C programming for embedded control system</li>
+      </ul>
+    </div>
 
-  <img src="../assets/img/fluidD_cad.jpg" alt="Fluid Dispenser Drawing">
-  <p class="image-caption">CAD drawing of the complete fluid dispenser assembly</p>
+    <div class="project-section">
+      <h2>Images</h2>
+      <div class="image-gallery few-images">
 
-  <img src="../assets/img/fluiddispenser.jpg" alt="Assembled Dispenser System">
-  <p class="image-caption">Assembled fluid dispenser</p>
+        <figure class="gallery-item">
+          <img src="../assets/img/fluiddispenser_schematic.jpg"
+               alt="System schematic showing component integration"
+               loading="lazy">
+          <figcaption>System schematic showing component integration</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="../assets/img/fluidD_cad.jpg"
+               alt="CAD drawing of the complete fluid dispenser assembly"
+               loading="lazy">
+          <figcaption>CAD drawing of the complete fluid dispenser assembly</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="../assets/img/fluiddispenser.jpg"
+               alt="Assembled fluid dispenser"
+               loading="lazy">
+          <figcaption>Assembled fluid dispenser</figcaption>
+        </figure>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+
 </body>
 </html>

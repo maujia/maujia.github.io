@@ -23,16 +23,16 @@
     <div class="hero-inner">
       <h1>Arjun Mauji</h1>
       <p class="hero-body">
-        Mechanical Engineering Student, currently exploring Systems/Embedded programming in the field of Aerospace.
+        Hello! I'm a Mechanical Engineering Student currently learning Systems/Embedded programming for aerospace.
       </p>
       <div class="hero-socials">
-        <a href="src/pdf/Resume - Arjun Mauji.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="https://www.linkedin.com/in/arjun-mauji-b67610215/" target="_blank" rel="noopener">LinkedIn</a>
         <span class="dot">·</span>
         <a href="https://github.com/maujia" target="_blank" rel="noopener">GitHub</a>
         <span class="dot">·</span>
-        <a href="https://www.linkedin.com/in/arjun-mauji-b67610215/" target="_blank" rel="noopener">LinkedIn</a>
-        <span class="dot">·</span>
         <a href="mailto:22cnr1@queensu.ca">Email</a>
+        <span class="dot">·</span>
+        <a href="src/pdf/Resume - Arjun Mauji.pdf" target="_blank" rel="noopener">Resume</a>
       </div>
     </div>
   </section>
@@ -51,7 +51,7 @@
           <p>Assisted with the CAD modelling and manufacturing work for the CVT system as apart of the Queen's off-road vehicle design team (baja sae).</p>
         </li>
         <li>
-          <span class="bullet">&gt;</span><span class="project-link">Embedded Subteam - Queen's Baja SAE</span>
+          <span class="bullet">&gt;</span><a class="project-link">Embedded Subteam - Queen's Baja SAE</a>
           <p>Learning how to write firmware on STM32s to collect real-time data from the vehicle's transmission system.</p>
         </li>
         <li>
@@ -79,7 +79,7 @@
       <h2>Currently Learning</h2>
       <ul class="section-list plain">
         <li><span class="bullet">&gt;</span> Computer Architecture — follow along on Instagram <a href="https://instagram.com/arjunzrbuilds" class="project-link">@arjunzrbuilds</a></li>
-        <li><span class="bullet">&gt;</span> GPU Programming</li>
+        <li><span class="bullet">&gt;</span> Operating Systems</li>
         <li><span class="bullet">&gt;</span> RTOS applications in Aerospace</li>
       </ul>
     </section>
@@ -116,7 +116,7 @@
 
     const heroObserver = new IntersectionObserver(([entry]) => {
       sideNav.classList.toggle('visible', !entry.isIntersecting);
-    }, { threshold: 0.1 });
+    }, { threshold: 0.5} );
 
     heroObserver.observe(hero);
 

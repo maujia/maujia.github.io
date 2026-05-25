@@ -5,28 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Continuously Variable Transmission (CVT)</title>
   <link rel="icon" type="image/x-icon" href="../assets/img/gears_favicon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/NewStyle.css" />
 </head>
+<body class="project-page">
 
-<body>
-  <a href="../index.html" class="back-button">← Back</a>
-  <h1>Continuously Variable Transmission (CVT)</h1>
-  <p class="subtitle">Queen's BAJA Off-Road Vehicle Design Team</p>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&#x2715;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+  </div>
 
-  <h2>Project Description</h2>
-  <p>
-    This project involved designing and manufacturing a Continuously Variable Transmission (CVT) system for a 2024 vehicle. The CVT uses a pulley-and-belt mechanism to provide seamless gear ratio transitions, optimizing engine performance through precise RPM engagement control. All components were designed using CAD software and manufactured using precision machining techniques including MasterCam-programmed lathe operations.
-  </p>
+  <div class="project-header">
+    <a href="../index.html#projects" class="back-link">&#8592; Back</a>
+    <h1>Continuously Variable Transmission (CVT)</h1>
+    <p class="subtitle">Queen's BAJA Off-Road Vehicle Design Team</p>
+  </div>
 
-  <h2>Key Contributions</h2>
-  <ul>
-    <li>Shadowed the manufacturing of the secondary transmission unit</li>
-    <li>Learned to compose G-code scripts with Mastercam for CNC machining tools</li>
-  </ul>
+  <div class="project-body">
 
-  <h2>Images</h2>
+    <div class="project-section">
+      <h2>Project Description</h2>
+      <p>
+        This project involved designing and manufacturing a Continuously Variable Transmission (CVT) system for a 2024 vehicle. The CVT uses a pulley-and-belt mechanism to provide seamless gear ratio transitions, optimizing engine performance through precise RPM engagement control. All components were designed using CAD software and manufactured using precision machining techniques including MasterCam-programmed lathe operations.
+      </p>
+    </div>
 
-  <img src="../assets/img/cvt_img.png" alt="CVT Assembly">
-  <p class="image-caption">Assembled CVT system for the 2024 BAJA vehicle</p>
+    <div class="project-section">
+      <h2>Key Contributions</h2>
+      <ul>
+        <li>Shadowed the manufacturing of the secondary transmission unit</li>
+        <li>Learned to compose G-code scripts with Mastercam for CNC machining tools</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h2>Images</h2>
+      <div class="image-gallery few-images">
+
+        <figure class="gallery-item">
+          <img src="../assets/img/cvt_img.png"
+               alt="Assembled CVT system for the 2024 BAJA vehicle"
+               loading="lazy">
+          <figcaption>Assembled CVT system for the 2024 BAJA vehicle</figcaption>
+        </figure>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+
 </body>
 </html>
