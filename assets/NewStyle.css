@@ -86,14 +86,14 @@ body.home-page {
 }
 
 .hero h1 {
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: 500;
   color: #111;
   margin-bottom: 1.5rem;
 }
 
 .hero-body {
-  font-size: 0.95rem;
+  font-size: 1.07rem;
   line-height: 1.85;
   color: #444;
   margin-bottom: 2rem;
@@ -108,7 +108,7 @@ body.home-page {
 }
 
 .hero-socials a {
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: #3552b4ab;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -504,5 +504,74 @@ body.project-page {
 
   .gallery-item img {
     height: 180px;
+  }
+}
+
+
+
+
+/* ── Video Gallery ── */
+.video-gallery {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.75rem;
+  margin-top: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.video-gallery::-webkit-scrollbar       { height: 4px; }
+.video-gallery::-webkit-scrollbar-track { background: transparent; }
+.video-gallery::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.video-gallery.few-videos .gallery-item {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 400px;
+}
+
+.video-gallery:not(.few-videos) .gallery-item {
+  width: clamp(220px, 34vw, 340px);
+  flex: 0 0 auto;
+}
+
+.video-gallery .gallery-item {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  cursor: default;
+}
+
+.project-video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background: #f2f1ef;
+  border-radius: 6px;
+  margin: 0;
+  display: block;
+}
+
+.video-gallery .gallery-item figcaption {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ── Responsive video gallery ── */
+@media (max-width: 640px) {
+  .video-gallery.few-videos {
+    flex-direction: column;
+  }
+
+  .video-gallery.few-videos .gallery-item {
+    flex: none;
+    width: 100%;
   }
 }

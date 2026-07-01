@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STM32 Signal Displayer</title>
+  <link rel="icon" type="image/x-icon" href="../assets/img/gears_favicon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/NewStyle.css" />
+</head>
+<body class="project-page">
+
+  <div class="project-header">
+    <a href="../index.html#projects" class="back-link">&#8592; Back</a>
+    <h1>STM32 Signal Displayer</h1>
+    <p class="subtitle">First step towards an STM32-based oscilloscope</p>
+  </div>
+
+  <div class="project-body">
+
+    <div class="project-section">
+      <h2>Project Description</h2>
+      <p>
+       I built a small signal displayer. It has 2 channels which can be switched via buttons to display either a varying voltage or PWM signal, both between 0-3.3 V. This project was a stepping stone towards building an STM32-based oscilloscope which measures and displays analog and PWM signals between 0-3.3 V. 
+      </p>
+    </div>
+
+    <div class="project-section">
+      <h2>Demo</h2>
+      <div class="video-gallery few-videos">
+
+        <figure class="gallery-item">
+          <video class="project-video" controls playsinline preload="metadata"
+                 src="../assets/video/Signal_Display_Demo.mp4">
+            Your browser does not support the video tag.
+          </video>
+         <!-- <figcaption>Signal displayer switching between analog and PWM channels</figcaption> -->
+        </figure>
+
+      </div>
+    </div>
+
+    <div class="project-section">
+      <h2>What I've Learned So Far</h2>
+      <p>(I initially wrote the code using STM32CubeMX but then transitioned to bare-metal C using the STM32 reference manual and datasheet)</p>
+      <br>
+      <ul>
+        <li>How to configure hardware peripherals (ADC, GPIO, SPI, timers) at the register level using bitwise operations and bitmasks.</li>
+        <li>How to implement channel switching with buttons by using the ARM interrupt controller (NVIC) and routing hardware interrupts to my ISR functions.</li>
+        <li>How to communicate using the SPI protocol by writing a custom device driver to interface with the display module (based on its own datasheet).</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h2>Next Steps</h2>
+      <ul>
+        <li>Writing my own linker script and startup code to control the boot process and memory layout.</li>
+        <li>Finalizing the oscilloscope specs and design scope.</li>
+      </ul>
+    </div>
+
+
+
+  </div>
+
+</body>
+</html>
