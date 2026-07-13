@@ -13,27 +13,19 @@
 <body class="home-page">
 
   <nav class="side-nav" id="sideNav">
-    <a href="#projects" class="nav-link">Projects</a>
-    <a href="#writing" class="nav-link">Writing</a>
-    <a href="#learning" class="nav-link">Currently Learning</a>
-    <a href="#interests" class="nav-link">Other Interests</a>
+    <a href="#projects" class="nav-link"><span class="nav-dot" aria-hidden="true"></span><span class="nav-label">Projects</span></a>
+    <a href="#writing" class="nav-link"><span class="nav-dot" aria-hidden="true"></span><span class="nav-label">Writing</span></a>
+    <a href="#learning" class="nav-link"><span class="nav-dot" aria-hidden="true"></span><span class="nav-label">Currently Learning</span></a>
+    <a href="#interests" class="nav-link"><span class="nav-dot" aria-hidden="true"></span><span class="nav-label">Other Interests</span></a>
+    <a href="#contact" class="nav-link"><span class="nav-dot" aria-hidden="true"></span><span class="nav-label">Contact</span></a>
   </nav>
 
   <section class="hero" id="hero">
     <div class="hero-inner">
       <h1>Arjun Mauji</h1>
       <p class="hero-body">
-        Hello! I'm a Mechanical Engineering Student at Queen'sU, currently learning Embedded/Systems programming.
+        Hello! I'm a Mechanical Engineering Student at Queen's University, currently learning Embedded/Systems programming.
       </p>
-      <div class="hero-socials">
-        <a href="https://www.linkedin.com/in/arjun-mauji-b67610215/" target="_blank" rel="noopener">LinkedIn</a>
-        <span class="dot">·</span>
-        <a href="https://github.com/maujia" target="_blank" rel="noopener">GitHub</a>
-        <span class="dot">·</span>
-        <a href="mailto:22cnr1@queensu.ca">Email</a>
-        <span class="dot">·</span>
-        <a href="src/pdf/Arjun Mauji - Resume 2026.pdf" target="_blank" rel="noopener">Resume</a>
-      </div>
     </div>
   </section>
 
@@ -52,7 +44,7 @@
         </li>
         <li>
           <span class="bullet">&gt;</span><a href="projects/cvt.html" class="project-link">Continuously Variable Transmission (CVT) Modelling - 2024</a>
-          <p>Assisted with the CAD modelling and manufacturing work for the CVT system as apart of the Queen's off-road vehicle design team (baja sae).</p>
+          <p>Assisted with the CAD modelling and manufacturing work for the CVT system as part of the Queen's off-road vehicle design team (Baja SAE).</p>
         </li>
         <li>
           <span class="bullet">&gt;</span><a class="project-link">Embedded Subteam - Queen's Baja SAE - 2026</a>
@@ -102,15 +94,15 @@
 
     <div class="divider"></div>
 
-    <footer class="page-footer">
-      <a href="https://github.com/maujia" target="_blank" rel="noopener">GitHub</a>
-      <span class="dot">·</span>
-      <a href="https://www.linkedin.com/in/arjun-mauji-b67610215/" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="dot">·</span>
-      <a href="mailto:22cnr1@queensu.ca">Email</a>
-      <span class="dot">·</span>
-      <a href="src/pdf/Arjun Mauji - Resume 2026.pdf" target="_blank" rel="noopener">Resume</a>
-    </footer>
+    <section class="content-section" id="contact">
+      <h2>Contact</h2>
+      <ul class="section-list plain contact-list">
+        <li><span class="bullet">&gt;</span><a href="mailto:22cnr1@queensu.ca" class="project-link">Email</a></li>
+        <li><span class="bullet">&gt;</span><a href="https://www.linkedin.com/in/arjun-mauji-b67610215/" class="project-link" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><span class="bullet">&gt;</span><a href="https://github.com/maujia" class="project-link" target="_blank" rel="noopener">GitHub</a></li>
+        <li><span class="bullet">&gt;</span><a href="src/pdf/Arjun Mauji - Resume 2026.pdf" class="project-link" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </section>
 
   </main>
 
@@ -127,13 +119,15 @@
     const sections = document.querySelectorAll('.content-section');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
-          });
-        }
+    const sectionObserver = new IntersectionObserver(() => {
+      const viewportAnchor = window.innerHeight * 0.35;
+      const activeSection = [...sections].reduce((closest, section) => {
+        const distance = Math.abs(section.getBoundingClientRect().top - viewportAnchor);
+        return !closest || distance < closest.distance ? { section, distance } : closest;
+      }, null).section;
+
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeSection.id);
       });
     }, { threshold: 0.2 });
 
@@ -142,6 +136,7 @@
     navLinks.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
+        navLinks.forEach(navLink => navLink.classList.toggle('active', navLink === link));
         document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
