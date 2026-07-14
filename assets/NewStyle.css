@@ -42,34 +42,69 @@ body.home-page {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+  align-items: flex-start;
+  gap: 0.75rem;
+  opacity: 1;
+  pointer-events: all;
   z-index: 100;
 }
 
 .side-nav.visible {
-  opacity: 1;
-  pointer-events: all;
+  transform: translateY(-50%);
 }
 
 .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
   font-size: 0.75rem;
   color: var(--muted);
   text-decoration: none;
   font-weight: 400;
   letter-spacing: 0.02em;
+  min-height: 1.25rem;
   transition: color 0.15s, font-weight 0.15s;
 }
 
+.nav-label {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transform: translateX(1rem);
+  transform-origin: left center;
+  transition: max-width 0.3s ease, opacity 0.2s ease, transform 0.3s ease;
+}
+
+.nav-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-link:hover .nav-label,
+.nav-link:focus-visible .nav-label,
+.side-nav.visible .nav-label {
+  max-width: 10rem;
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .nav-link:hover {
-  color: var(--text);
+  color: var(--muted);
 }
 
 .nav-link.active {
   color: var(--text);
+}
+
+.nav-link.active .nav-label {
   font-weight: 600;
+  transform: translateX(0) scale(1.08);
 }
 
 /* ── Hero ── */
@@ -98,25 +133,6 @@ body.home-page {
   color: #444;
   margin-bottom: 2rem;
   max-width: 520px;
-}
-
-.hero-socials {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.hero-socials a {
-  font-size: 1rem;
-  color: #3552b4ab;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.15s;
-}
-
-.hero-socials a:hover {
-  color: #043a6c;
 }
 
 .dot {
@@ -209,25 +225,8 @@ a.project-link:hover {
   font-size: 0.9rem;
 }
 
-/* ── Footer ── */
-.page-footer {
-  padding: 3rem 0 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.page-footer a {
-  font-size: 0.85rem;
-  color: #3552b4ab;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.15s;
-}
-
-.page-footer a:hover {
-  color: #043a6c;
+.contact-list {
+  gap: 0.8rem;
 }
 
 /* ── Shared typography ── */
@@ -308,6 +307,14 @@ img {
 
   .back-button {
     left: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .side-nav,
+  .nav-label,
+  .nav-dot {
+    transition: none;
   }
 }
 
