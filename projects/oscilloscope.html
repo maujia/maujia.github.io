@@ -21,13 +21,11 @@
   <div class="project-body">
 
     <div class="project-section">
-      <h2>Project Description</h2>
+      <h2>Description</h2>
       <p>
-        I'm building an STM32-based oscilloscope that samples and visualizes analog
-        signals between 0-3.3V. The design includes a high-impedance analog front-end
-        for safely probing external signals, DMA-driven ADC sampling and SPI display
-        transmission to avoid CPU bottlenecks, firmware written entirely in bare-metal C,
-        and a custom PCB and enclosure to house the electronics.
+        This project builds on my <a href="signaldisplayer.html" class="project-link">Signal Displayer</a>, and uses the same custom display driver
+        The design also includes a high-impedance analog front-end
+        for safely probing external signals and DMA-driven ADC sampling to avoid CPU bottlenecks. All of the firmware is also written entirely in bare-metal C.
       </p>
     </div>
 
@@ -36,9 +34,13 @@
       <ul>
         <li>Designed a high-impedance analog front-end to safely sample signal voltage at 1Msps with probes</li>
       </ul>
+      <ul>
+        <li>Finished writing all of the firmware needed for processing measured ADC signals and displaying them on the LCD module via SPI</li>
+      </ul>
       <div class="image-gallery few-images">
         <figure class="gallery-item">
           <img src="../assets/img/high_impedance_circuit.png" alt="Analog front-end circuit" />
+          <figcaption>High impedance circuit designed and tested in LTSpice</figcaption>
         </figure>
       </div>
     </div>
@@ -46,35 +48,7 @@
     <div class="project-section">
       <h2>Next Steps</h2>
       <ul>
-        <li>Using DMA to store signal samples and transmit them to the display over SPI in parallel, avoiding CPU blocking</li>
-      </ul>
-    </div>
-
-    <div class="project-section">
-      <h2>V1: Signal Displayer (Proof of Concept)</h2>
-      <p>
-        Before building the full oscilloscope, I built a small signal displayer as a
-        stepping stone. It has 2 channels which can be switched via buttons to display
-        either a varying voltage or PWM signal, both between 0-3.3V.
-      </p>
-
-      <div class="video-gallery few-videos">
-        <figure class="gallery-item">
-          <video class="project-video" controls playsinline preload="metadata"
-                 src="../assets/video/Signal_Display_Demo.mp4">
-            Your browser does not support the video tag.
-          </video>
-          <!-- <figcaption>Signal displayer switching between analog and PWM channels</figcaption> -->
-        </figure>
-      </div>
-
-      <br>
-      <p>(I initially wrote the code using STM32CubeMX but then transitioned to bare-metal C using the STM32 reference manual and datasheet)</p>
-      <br>
-      <ul>
-        <li>How to configure hardware peripherals (ADC, GPIO, SPI, timers) at the register level using bitwise operations and bitmasks.</li>
-        <li>How to implement channel switching with buttons by using the ARM interrupt controller (NVIC) and routing hardware interrupts to my ISR functions.</li>
-        <li>How to communicate using the SPI protocol by writing a custom device driver to interface with the display module (based on its own datasheet).</li>
+        <li>Implementing the analog front end and validating the transmission of the measured ADC signals to the display</li>
       </ul>
     </div>
 
