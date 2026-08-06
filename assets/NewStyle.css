@@ -512,6 +512,20 @@ body.project-page {
   gap: 0.1rem;
 }
 
+.image-gallery.cfd-gallery {
+  width: 100%;
+  margin-left: 0;
+  margin-top: 0.25rem;
+}
+
+.image-gallery.cfd-gallery .gallery-item {
+  gap: 0.15rem;
+}
+
+.image-gallery.cfd-gallery .gallery-item img {
+  height: auto;
+}
+
 .gallery-item img {
   width: 100%;
   max-width: 100%;
@@ -601,6 +615,13 @@ body.project-page {
 
 .lightbox-close:hover {
   opacity: 1;
+}
+
+@media (max-width: 820px) {
+  .image-gallery.cfd-gallery {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 /* ── Responsive project page ── */

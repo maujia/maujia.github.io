@@ -12,10 +12,14 @@
 </head>
 <body class="project-page">
 
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">&#x2715;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+  </div>
+
   <div class="project-header">
     <a href="../index.html#projects" class="back-link">&#8592; Back</a>
     <h1>Wing Design Optimization</h1>
-    <p class="subtitle"></p>
   </div>
 
   <div class="project-body">
@@ -24,43 +28,75 @@
       <h2>Project Motivation</h2>
       <p>
         I took fluid mechanics in my most recent semester of engineering and really enjoyed learning the 
-        fundamental concepts, specifically how we analyze the natural and induced forces on an airfoil.
-        So, this page is a series of short CFD simulations I did to refresh on a few core concepts learnt last semester: Potential Flow, Converging-Diverging Nozzles, and Lift and Drag on an Airfoil.
+        fundamental theory, specifically how force analysis is done on an airfoil. So,
+        this page is a series of short CFD simulations I did to refresh on a few core concepts learnt last semester: Potential Flow, Converging-Diverging Nozzles, and Lift and Drag on an Airfoil.
       </p>
+    </div>
+    <div class="project-section">
+      <h2>Currently Working On</h2>
+      <p>
+        I'm now currently working on a small project using XFLR5 to optimize the performance of a NACA 2412 wing. This project is inspired by the wing optimization project laid out:</p>
+      <a href="https://www.aeroed.ai/projects/wing-optimization-xflr5" class="project-link" target="_blank" rel="noopener">here</a>
     </div>
 
     <div class="project-section">
       <h2>Simulations</h2>
       <p>These simulations were all done using Ansys Fluent</p>
-      <div class="image-gallery few-images">
-        <figure class="gallery-item placeholder-item">
-          <div class="media-placeholder" role="img" aria-label="Potential flow simulation image placeholder">
-            Potential flow simulation
-          </div>
+      <div class="image-gallery few-images cfd-gallery">
+        <figure class="gallery-item">
+          <img src="../assets/img/Pressure Contour Lab2.png"
+               alt="Pressure contour for a doublet in a uniform flow"
+               loading="lazy">
+          <figcaption>Doublet + Uniform Flow (potential flow)</figcaption>
         </figure>
 
-        <figure class="gallery-item placeholder-item">
-          <div class="media-placeholder" role="img" aria-label="Converging-diverging nozzle simulation image placeholder">
-            Converging-diverging nozzle simulation
-          </div>
+        <figure class="gallery-item">
+          <img src="../assets/img/Velocity Contour Lab4.png"
+               alt="Velocity contour for a converging-diverging nozzle with a normal shock"
+               loading="lazy">
+          <figcaption>Converging-diverging nozzle with a normal shock due to low back pressure</figcaption>
         </figure>
 
-        <figure class="gallery-item placeholder-item">
-          <div class="media-placeholder" role="img" aria-label="Airfoil lift and drag simulation image placeholder">
-            Airfoil lift and drag simulation
-          </div>
+        <figure class="gallery-item">
+          <img src="../assets/img/Pressure Contour-Lab5 - V3.png"
+               alt="Pressure contour for an airfoil at a 10-degree angle of attack"
+               loading="lazy">
+          <figcaption>Airfoil in a uniform flow of 20 m/s at an angle of attack of 10 degrees</figcaption>
         </figure>
       </div>
     </div>
 
-    <div class="project-section">
-      <h2>Currently Working On</h2>
-      <p>
-        I'm currently working on a small project using XFLR5 to optimize the performance of a NACA 2412 wing. This project is inspired by the wing optimization project laid out </p>
-      <a href="https://www.aeroed.ai/projects/wing-optimization-xflr5" class="project-link" target="_blank" rel="noopener">here</a>
-    </div>
+
 
   </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.cfd-gallery .gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', event => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeLightbox();
+    });
+  </script>
 
 </body>
 </html>
