@@ -358,6 +358,10 @@ body.project-page {
   margin-bottom: 3rem;
 }
 
+.cvt-page .project-header {
+  margin-bottom: 1.5rem;
+}
+
 .back-link {
   display: inline-block;
   font-size: 0.82rem;
