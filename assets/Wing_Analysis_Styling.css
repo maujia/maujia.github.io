@@ -1,0 +1,503 @@
+/* ═══════════════════════════════════════════════════════════════
+   WING AEROELASTICITY REPORT PAGE
+   Scoped to body.project-page.wing-report so it can only ever
+   apply to the wing report page. Add class="project-page wing-report"
+   to that page's <body>, and load this file after NewStyle.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Full-width report canvas.
+   The generic project-page rule in NewStyle.css is intentionally
+   overridden only for this report layout. */
+body.project-page.wing-report {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: "Georgia", Times, serif !important;
+  line-height: 1.6;
+  color: #333;
+  background: #faf9f7;
+}
+
+/* Floating left navigation */
+body.project-page.wing-report .sidebar {
+  position: fixed;
+  top: 4rem;
+  left: 2rem;
+  width: 220px;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+}
+body.project-page.wing-report::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 150vh;
+  background: #faf9f7;
+  z-index: 5;
+}
+
+body.project-page.wing-report .sidebar {
+  z-index: 10;
+}
+
+body.project-page.wing-report .sidebar h3 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+  display: inline-block; 
+}
+
+body.project-page.wing-report .sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body.project-page.wing-report .sidebar li {
+  margin-bottom: 0.75rem;
+}
+
+body.project-page.wing-report .sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.05rem;
+  transition: color 0.2s;
+}
+
+body.project-page.wing-report .sidebar a:hover {
+  color: #1e3a5f;
+  text-decoration: underline;
+}
+
+/* Main report area.
+   260px is reserved for the floating navigation, while the report
+   itself is centered within everything remaining on the viewport. */
+body.project-page.wing-report .main-content {
+  box-sizing: border-box;
+  width: calc(100% - 260px);
+  margin-left: 260px;
+  margin-right: 0;
+  padding: 2.25rem 2.5rem 4rem;
+  min-height: 100vh;
+  display: block;
+}
+
+/* Wide report column, centered in the available area */
+body.project-page.wing-report .project-header,
+body.project-page.wing-report .project-body {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Header */
+body.project-page.wing-report .project-header {
+  margin-bottom: 2rem;
+}
+
+body.project-page.wing-report .project-header .back-link {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: #888;
+  text-decoration: none;
+}
+
+body.project-page.wing-report .project-header .back-link:visited {
+  color: #888;
+}
+
+body.project-page.wing-report .project-header .back-link:hover {
+  color: #333;
+}
+
+body.project-page.wing-report .project-header h1 {
+  margin: 0 0 0.6rem;
+  text-align: center;
+  font-size: 3rem;
+  line-height: 1.15;
+  font-weight: 500;
+  color: #111;
+}
+
+body.project-page.wing-report .project-header .subtitle {
+  max-width: 1050px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #555;
+  text-align: center;
+}
+
+/* Report typography and spacing */
+body.project-page.wing-report .project-section {
+  margin: 0 0 2.75rem;
+}
+
+body.project-page.wing-report .project-section p,
+body.project-page.wing-report .project-section li {
+  font-family: Georgia, Times, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #333;
+}
+
+body.project-page.wing-report .project-section p {
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+body.project-page.wing-report .project-section p:last-child {
+  margin-bottom: 0;
+}
+
+body.project-page.wing-report .project-section h2 {
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid #eee;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #111;
+  text-decoration: none;
+}
+
+body.project-page.wing-report .report-subheading {
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+body.project-page.wing-report .report-subheading-first {
+  margin-top: 0.5rem;
+}
+
+body.project-page.wing-report .report-equation {
+  margin: 0 0 1rem;
+  text-align: center !important;
+  font-style: italic;
+}
+
+/* Tables */
+body.project-page.wing-report .project-table {
+  width: 100%;
+  min-width: 0;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+}
+
+body.project-page.wing-report .project-table th,
+body.project-page.wing-report .project-table td {
+  padding: 0.65rem;
+  border: 1px solid #ccc;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Report images/galleries */
+body.project-page.wing-report .project-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+body.project-page.wing-report .image-gallery,
+body.project-page.wing-report .project-table-wrap {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* 3D wing widget */
+body.project-page.wing-report #wing-widget {
+  --wing-accent: #1e3a5f;
+  max-width: 800px;
+  margin: 3rem auto;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: "Georgia", Times, serif;
+}
+
+body.project-page.wing-report #wing-widget .controls {
+  margin-top: 1.75rem;
+}
+
+body.project-page.wing-report #wing-widget .control-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.1rem;
+}
+
+body.project-page.wing-report #wing-widget .control-row label {
+  width: 80px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: #555;
+  letter-spacing: 0.01em;
+}
+
+body.project-page.wing-report #wing-widget input[type="range"] {
+  flex: 1;
+  accent-color: var(--wing-accent);
+}
+
+body.project-page.wing-report #wing-widget .val {
+  width: 40px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: #333;
+  text-align: right;
+}
+
+body.project-page.wing-report #wing-widget .view-buttons {
+  display: flex;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+
+body.project-page.wing-report #wing-widget .view-btn {
+  padding: 0.15rem 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: transparent;
+  color: #555;
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+body.project-page.wing-report #wing-widget .view-btn:hover {
+  color: var(--wing-accent);
+  border-color: var(--wing-accent);
+}
+
+body.project-page.wing-report #wing-widget .viewport-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+body.project-page.wing-report #wing-widget .three-container {
+  flex: 1;
+  height: 320px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  cursor: grab;
+}
+
+body.project-page.wing-report #wing-widget .three-container:active {
+  cursor: grabbing;
+}
+
+body.project-page.wing-report #wing-widget .zoom-slider-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 28px;
+  flex-shrink: 0;
+}
+
+body.project-page.wing-report #wing-widget .zoom-slider-wrap span {
+  font-size: 0.75rem;
+  color: #555;
+}
+
+body.project-page.wing-report #wing-widget input[type="range"]#in-zoom {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: 4px;
+  height: 220px;
+  accent-color: var(--wing-accent);
+}
+
+/* Desktop/tablet report behavior */
+@media (max-width: 1100px) {
+  body.project-page.wing-report .sidebar {
+    left: 1.25rem;
+    width: 190px;
+  }
+
+  body.project-page.wing-report .main-content {
+    width: calc(100% - 220px);
+    margin-left: 220px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* On smaller screens, the sidebar becomes part of normal flow */
+@media (max-width: 950px) {
+  body.project-page.wing-report .sidebar {
+    position: static;
+    width: auto;
+    margin: 1.5rem 1.5rem 0;
+  }
+
+  body.project-page.wing-report .main-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 1.5rem 1.5rem 4rem;
+  }
+
+  body.project-page.wing-report .project-header,
+  body.project-page.wing-report .project-body {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  body.project-page.wing-report .project-header h1 {
+    font-size: 2.2rem;
+  }
+
+  body.project-page.wing-report .project-section p,
+  body.project-page.wing-report .project-section li {
+    font-size: 0.95rem;
+  }
+
+  body.project-page.wing-report #wing-widget .control-row {
+    gap: 0.45rem;
+  }
+
+  body.project-page.wing-report #wing-widget .control-row label {
+    width: 70px;
+  }
+}
+
+/* ── Mobile / iPhone-specific fixes ── */
+
+@media (max-width: 950px) {
+  /* Remove the fixed sidebar backdrop once the sidebar goes static —
+     otherwise it stays pinned over the content on phones/tablets. */
+  body.project-page.wing-report::before {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  body.project-page.wing-report,
+  body.project-page.wing-report .main-content {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 640px) {
+  body.project-page.wing-report .main-content {
+    padding: 1.25rem 1rem 3rem;
+  }
+
+  body.project-page.wing-report .project-header h1 {
+    font-size: 1.7rem;
+  }
+
+  body.project-page.wing-report .project-header .subtitle {
+    font-size: 0.95rem;
+  }
+
+  body.project-page.wing-report .report-subheading {
+    font-size: 1rem;
+  }
+
+  /* Stack the 3D viewer above the zoom slider instead of squeezing them */
+  body.project-page.wing-report #wing-widget {
+    margin: 2rem auto;
+  }
+
+  body.project-page.wing-report #wing-widget .viewport-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  body.project-page.wing-report #wing-widget .three-container {
+    height: 240px;
+    width: 100%;
+    touch-action: pan-y; /* one-finger drag orbits; page still scrolls vertically */
+  }
+
+  /* Turn the vertical zoom slider into a horizontal one under the canvas */
+  body.project-page.wing-report #wing-widget .zoom-slider-wrap {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    gap: 0.6rem;
+    padding: 0 0.25rem;
+  }
+
+  body.project-page.wing-report #wing-widget input[type="range"]#in-zoom {
+    writing-mode: horizontal-tb;
+    direction: ltr;
+    width: 100%;
+    height: 4px;
+  }
+
+  /* Let each control row's label sit on its own line above the slider */
+  body.project-page.wing-report #wing-widget .control-row {
+    flex-wrap: wrap;
+    row-gap: 0.4rem;
+    margin-bottom: 1.4rem;
+  }
+
+  body.project-page.wing-report #wing-widget .control-row label {
+    width: auto;
+    flex: 1 1 100%;
+    order: 1;
+    font-size: 0.8rem;
+  }
+
+  body.project-page.wing-report #wing-widget input[type="range"]:not(#in-zoom) {
+    order: 2;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  body.project-page.wing-report #wing-widget .val {
+    order: 3;
+    width: 44px;
+  }
+
+  body.project-page.wing-report #wing-widget .view-buttons {
+    order: 4;
+  }
+
+  /* Bigger touch targets for the Iso/Top/Side buttons */
+  body.project-page.wing-report #wing-widget .view-btn {
+    padding: 0.3rem 0.55rem;
+    font-size: 0.72rem;
+  }
+
+  /* Tables: keep horizontal scroll obvious, don't force page-wide overflow */
+  body.project-page.wing-report .project-table {
+    min-width: 0;
+    font-size: 0.8rem;
+  }
+
+  body.project-page.wing-report .project-table th,
+  body.project-page.wing-report .project-table td {
+    padding: 0.45rem;
+    font-size: 0.78rem;
+  }
+
+  body.project-page.wing-report .report-equation {
+    font-size: 0.95rem;
+    word-break: break-word;
+  }
+}

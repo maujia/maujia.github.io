@@ -33,6 +33,10 @@
       <h2>Projects</h2>
       <ul class="section-list">
         <li>
+          <span class="bullet">&gt;</span><a href="projects/wing_analysis.html" class="project-link">Wing Analysis</a>
+          <p>Wing Analysis Project using XFLR5 and OpenAeroStruct</p>
+        </li>
+        <li>
           <span class="bullet">&gt;</span><a href="projects/signaldisplayer.html" class="project-link">Signal Displayer</a>
           <p>Two channel STM32 based signal displayer.</p>
         </li>
@@ -108,24 +112,9 @@
     const sections = document.querySelectorAll('.content-section');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    const sectionObserver = new IntersectionObserver(() => {
-      const viewportAnchor = window.innerHeight * 0.35;
-      const activeSection = [...sections].reduce((closest, section) => {
-        const distance = Math.abs(section.getBoundingClientRect().top - viewportAnchor);
-        return !closest || distance < closest.distance ? { section, distance } : closest;
-      }, null).section;
-
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + activeSection.id);
-      });
-    }, { threshold: 0.2 });
-
-    sections.forEach(s => sectionObserver.observe(s));
-
     navLinks.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        navLinks.forEach(navLink => navLink.classList.toggle('active', navLink === link));
         document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });

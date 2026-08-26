@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wing Aeroelasticity Analysis</title>
+  <link rel="icon" type="image/x-icon" href="../assets/img/gears_favicon.jpg" />
+  <link rel="stylesheet" href="../assets/Wing_Analysis_Styling.css" />
+</head>
+<body class="project-page wing-report" style="zoom: 0.95;">
+
+  <!-- Floating Left Nav -->
+  <nav class="sidebar">
+    <h3>Contents</h3>
+    <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#theoretical-concepts">Theoretical Concepts</a></li>
+      <li><a href="#methods">Methods</a></li>
+      <li><a href="#results">Results and Discussion</a></li>
+      <li><a href="#sensitivity-analysis">Sensitivity Analysis</a></li>
+      <li><a href="#future-work">Future Work</a></li>
+      <li><a href="#tools-theory">Tools &amp; Theory</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <div class="project-header">
+      <a href="../index.html#projects" class="back-link">&#8592; Back</a>
+      <h1>Wing Aeroelasticity Analysis</h1>
+      <p class="subtitle">How does the aerodynamic advantage of increasing aspect ratio change when considering the structural flexibility and aeroelastic deformation properties of a wing?</p>
+    </div>
+
+    <div class="project-body">
+
+      <div class="project-section" id="introduction">
+        <p>
+          This report investigates how the geometrical properties of a Cessna 172-inspired wing affect its lift and drag generation in the case of a rigid and a flexible wing. Specifically, how the aspect ratio (AR), taper ratio (TR) and twist angle (washout) geometry influences aerodynamic performance for rigid wings, then looking at how these effects change in an environment where the wing is flexible and can undergo aeroelastic deformation.
+        </p>
+        <p>
+          Higher aspect ratios are theoretically associated with improved aerodynamic efficiency, particularly through reduced induced drag as shown in this formula.
+        </p>
+        <p class="report-equation">CD<sub>i</sub> = CL&sup2; / (&pi; &times; AR &times; e)</p>
+        <p>
+          As AR increases, wing span is increased rather than the chord length, producing a narrower and longer wing as well as increasing the distance between the 2 wingtips of the plane. This greater distance is crucial because a larger wingspan spreads the lift over a wider area of air. This reduces the downwash velocity and downwash angle across the wing, which reduces the induced drag effect.
+        </p>
+        <p>
+          However, narrower and higher AR wings are also subject to greater structural and aeroelastic deformation. These deformations are both physical changes to wing shape but differ in behavior. Both types of deformation actually settle into a static equilibrium during steady flight. The difference is that aeroelastic deformation involves a two-way feedback loop: the aerodynamic loads change the wing's shape, and that new shape changes the aerodynamic loads over and over until it settles into equilibrium. Since real wings deform under aerodynamic loading, a rigid wing analysis cannot fully capture this behavior.
+        </p>
+        <p>
+          This is the primary trade-off explored in the report: whether the aerodynamic advantage of increasing aspect ratio still holds once structural flexibility and aeroelastic deformation are introduced.
+        </p>
+        <p>
+          The initial hypothesis was that deformation and twisting of a flexible wing analysis would significantly reduce its lift-to-drag ratio (L/D) by introducing additional viscous drag, and that the aerodynamic benefits of increasing aspect ratio would eventually be overshadowed by the increasingly large structural deformations produced by longer wings.
+        </p>
+      </div>
+
+      <div class="project-section" id="theoretical-concepts">
+        <h2>Theoretical Concepts</h2>
+        <p>This section explains the key wing geometry concepts referenced throughout the report.</p>
+        
+        <div class="project-table-wrap">
+          <table class="project-table">
+            <tr>
+              <th>Chord</th>
+              <td>This is the width of a wing, measured from the front edge to the back edge. The chord length where the wing meets the fuselage is called the root chord, and the one at the tip of the wing is called tip chord.</td>
+            </tr>
+            <tr>
+              <th>Taper Ratio</th>
+              <td>Defined as the ratio of the tip chord length over the root chord length, which is why the values range from 0.1 to 1.0.</td>
+            </tr>
+            <tr>
+              <th>Aspect Ratio</th>
+              <td>Defined as the ratio of the wingspan squared and the wing area.</td>
+            </tr>
+            <tr>
+              <th>Twist Angle (Wing Washout)</th>
+              <td>Wing washout refers to the tip of a wing being designed at a lower or higher angle of incidence than at the root.</td>
+            </tr>
+          </table>
+        </div>
+
+        <p>Here is a tool you can use to visualize how changing each geometrical property affects the overall wing shape.</p>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+        <div id="wing-widget">
+          <div class="viewport-row">
+            <div class="three-container" id="three-container"></div>
+            <div class="zoom-slider-wrap">
+              <span>+</span>
+              <input id="in-zoom" type="range" min="6" max="24" step="0.5" value="16"/>
+              <span>&minus;</span>
+            </div>
+          </div>
+
+          <div class="controls">
+            <div class="control-row">
+              <label>Aspect ratio</label>
+              <input id="in-ar" type="range" min="6" max="18" step="1" value="10"/>
+              <span class="val" id="val-ar">10</span>
+              <div class="view-buttons">
+                <button type="button" class="view-btn" data-view="ar-iso">Iso</button>
+                <button type="button" class="view-btn" data-view="ar-top">Top</button>
+              </div>
+            </div>
+            <div class="control-row">
+              <label>Taper ratio</label>
+              <input id="in-taper" type="range" min="0.1" max="1.0" step="0.05" value="0.5"/>
+              <span class="val" id="val-taper">0.50</span>
+              <div class="view-buttons">
+                <button type="button" class="view-btn" data-view="ar-top">Top</button>
+              </div>
+            </div>
+            <div class="control-row">
+              <label>Washout</label>
+              <input id="in-twist" type="range" min="-8" max="8" step="0.5" value="-2"/>
+              <span class="val" id="val-twist">-2&deg;</span>
+              <div class="view-buttons">
+                <button type="button" class="view-btn" data-view="side">Side</button>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <script>
+        (function initWingWidget() {
+          const container = document.getElementById('three-container');
+          const scene = new THREE.Scene();
+          const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 1000);
+
+          const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+          renderer.setPixelRatio(window.devicePixelRatio || 1);
+          renderer.setSize(container.clientWidth, container.clientHeight);
+          container.appendChild(renderer.domElement);
+
+          const controls = new THREE.OrbitControls(camera, renderer.domElement);
+          controls.enableDamping = true;
+          controls.dampingFactor = 0.1;
+          controls.enableZoom = false; 
+          controls.rotateSpeed = 0.35; 
+
+          const VIEW_DIRS = {
+            'ar-iso': [-0.55, 0.37, 0.61],
+            'ar-top': [0, 0.9999, 0.0077],
+            'side':   [0.0001, 0.115, 0.9934],
+          };
+
+          function applyZoom() {
+            const zoomEl = document.getElementById('in-zoom');
+            const dist = zoomEl ? (30 - parseFloat(zoomEl.value)) : 14; 
+            const dir = camera.position.clone().normalize();
+            camera.position.copy(dir.multiplyScalar(dist));
+            camera.lookAt(0, 0, 0);
+            controls.update();
+          }
+
+          function setView(name) {
+            const d = VIEW_DIRS[name];
+            if (!d) return;
+            const zoomEl = document.getElementById('in-zoom');
+            const dist = zoomEl ? (30 - parseFloat(zoomEl.value)) : 14; 
+            camera.position.set(d[0] * dist, d[1] * dist, d[2] * dist);
+            camera.lookAt(0, 0, 0);
+            controls.update();
+          }
+
+          scene.add(new THREE.AmbientLight(0xffffff, 1.0));
+          const dirLight = new THREE.DirectionalLight(0xffffff, 0.55);
+          dirLight.position.set(5, 10, 5);
+          scene.add(dirLight);
+          const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.25);
+          dirLight2.position.set(-5, -3, -5);
+          scene.add(dirLight2);
+
+          const axesGroup = new THREE.Group();
+          const axisLen = 9;
+          function makeAxis(dir, color) {
+            const points = [
+              new THREE.Vector3(-dir.x * axisLen, -dir.y * axisLen, -dir.z * axisLen),
+              new THREE.Vector3(dir.x * axisLen, dir.y * axisLen, dir.z * axisLen),
+            ];
+            const geom = new THREE.BufferGeometry().setFromPoints(points);
+            const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.35 });
+            return new THREE.Line(geom, mat);
+          }
+          axesGroup.add(makeAxis(new THREE.Vector3(1, 0, 0), 0x1e3a5f)); 
+          axesGroup.add(makeAxis(new THREE.Vector3(0, 1, 0), 0x1e3a5f)); 
+          axesGroup.add(makeAxis(new THREE.Vector3(0, 0, 1), 0x1e3a5f)); 
+          scene.add(axesGroup);
+
+          let wingGroup = new THREE.Group();
+          scene.add(wingGroup);
+
+          const S_ref = 16.18;
+          const SCALE = 1.6; 
+
+          function naca4(x, m, p, t) {
+            const yt = 5 * t * (0.2969 * Math.sqrt(x) - 0.1260 * x - 0.3516 * x * x + 0.2843 * x * x * x - 0.1015 * x * x * x * x);
+            let yc = 0, dyc = 0;
+            if (p > 0 && p < 1) {
+              if (x < p) {
+                yc = (m / (p * p)) * (2 * p * x - x * x);
+                dyc = (2 * m / (p * p)) * (p - x);
+              } else {
+                yc = (m / ((1 - p) * (1 - p))) * ((1 - 2 * p) + 2 * p * x - x * x);
+                dyc = (2 * m / ((1 - p) * (1 - p))) * (p - x);
+              }
+            }
+            const theta = Math.atan(dyc);
+            return {
+              xu: x - yt * Math.sin(theta), yu: yc + yt * Math.cos(theta),
+              xl: x + yt * Math.sin(theta), yl: yc - yt * Math.cos(theta),
+            };
+          }
+
+          function buildWing(AR, taper, twistDeg) {
+            while (wingGroup.children.length > 0) {
+              wingGroup.children[0].geometry.dispose();
+              wingGroup.children[0].material.dispose();
+              wingGroup.remove(wingGroup.children[0]);
+            }
+
+            const span = Math.sqrt(AR * S_ref) * SCALE;
+            const semi = span / 2;
+            const rootChordRaw = (2 * S_ref) / (Math.sqrt(AR * S_ref) * (1 + taper));
+            const rootChord = rootChordRaw * SCALE;
+            const tipChord = rootChord * taper;
+            const twistRad = (twistDeg * Math.PI) / 180;
+
+            const THICK = 0.16; 
+            const CAMBER = 0.02;
+            const CAMBER_POS = 0.4;
+
+            const numPts = 16;
+            const xs = [];
+            for (let i = 0; i <= numPts; i++) {
+              const beta = (i / numPts) * Math.PI;
+              xs.push((1 - Math.cos(beta)) / 2);
+            }
+
+            const sections = [-semi, 0, semi];
+            const profilePts = xs.length * 2; 
+            const verts = [];
+
+            sections.forEach((z) => {
+              const isCenter = z === 0;
+              const c = isCenter ? rootChord : tipChord;
+              const twist = isCenter ? 0 : twistRad;
+
+              const upper = [];
+              const lower = [];
+              xs.forEach((x) => {
+                const { xu, yu, xl, yl } = naca4(x, CAMBER, CAMBER_POS, THICK);
+                upper.push([xu, yu]);
+                lower.push([xl, yl]);
+              });
+
+              const ordered = [...upper, ...lower.slice().reverse()];
+              ordered.forEach(([px, py]) => {
+                const x0 = (px - 0.25) * c;
+                const y0 = py * c;
+                const rx = x0 * Math.cos(twist) - y0 * Math.sin(twist);
+                const ry = x0 * Math.sin(twist) + y0 * Math.cos(twist);
+                verts.push(rx, ry, z);
+              });
+            });
+
+            const n = profilePts;
+            const indices = [];
+            [[1, 0], [1, 2]].forEach(([s1, s2]) => {
+              for (let i = 0; i < n - 1; i++) {
+                const a = s1 * n + i, b = s1 * n + i + 1;
+                const c = s2 * n + i, d = s2 * n + i + 1;
+                indices.push(a, b, c, b, d, c);
+              }
+            });
+
+            const geom = new THREE.BufferGeometry();
+            geom.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+            geom.setIndex(indices);
+            geom.computeVertexNormals();
+
+            const mat = new THREE.MeshStandardMaterial({
+              color: 0x1e3a5f,
+              roughness: 0.35,
+              metalness: 0.1,
+              side: THREE.DoubleSide,
+              flatShading: false,
+            });
+
+            wingGroup.add(new THREE.Mesh(geom, mat));
+          }
+
+          function update() {
+            const AR = parseFloat(document.getElementById('in-ar').value);
+            const taper = parseFloat(document.getElementById('in-taper').value);
+            const twist = parseFloat(document.getElementById('in-twist').value);
+
+            document.getElementById('val-ar').innerText = AR.toFixed(0);
+            document.getElementById('val-taper').innerText = taper.toFixed(2);
+            document.getElementById('val-twist').innerText = twist.toFixed(1) + '\u00b0';
+
+            buildWing(AR, taper, twist);
+          }
+
+          document.querySelectorAll('#wing-widget input:not(#in-zoom)').forEach((el) =>
+            el.addEventListener('input', update)
+          );
+
+          document.getElementById('in-zoom').addEventListener('input', applyZoom);
+
+          document.querySelectorAll('#wing-widget .view-btn').forEach((btn) =>
+            btn.addEventListener('click', () => setView(btn.dataset.view))
+          );
+
+          window.addEventListener('resize', () => {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+          });
+
+          function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+          }
+
+          update();
+          setView('ar-iso');
+          animate();
+        })();
+        </script>
+
+        <p class="project-context">Geometrical values used in the initial rigid wing study:</p>
+        <div class="project-table-wrap">
+          <table class="project-table">
+            <tr><th>Aspect Ratio</th><td>6.0, 8.0, 10.0, 12.0</td></tr>
+            <tr><th>Taper Ratio</th><td>0.3, 0.5, 0.7, 1.0</td></tr>
+            <tr><th>Washout Angle</th><td>0, -1.5, -3.0, -4.0</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="project-section" id="methods">
+        <h2>Methods</h2>
+
+        <h3 class="report-subheading report-subheading-first">Rigid Wing Analysis Using LLT (Sim 1)</h3>
+        <p>
+          The initial rigid wing study was performed using XFLR5 and Lifting Line Theory (LLT). Before analyzing the complete wing, a batch foil analysis was performed on the NACA 2412 airfoil at Reynolds numbers ranging from 5.0 &times; 10<sup>6</sup> to 8.5 &times; 10<sup>6</sup> and angles of attack between -6&deg; and 22&deg;, at 0.5&deg; increments. This provided the viscous aerodynamic behavior required by the LLT solver to determine the aerodynamic performance of the finite 3D wing.
+        </p>
+        <p>
+          The three geometrical variables were then combined to produce 64 possible wing configurations using the AR, TR and washout values listed in the Theoretical Concepts table. Each geometry was analyzed between -6&deg; and 22&deg; in freestream air at 235 km/h. The purpose of this initial study was to observe how aspect ratio, taper ratio and washout influenced aerodynamic performance before structural flexibility was introduced.
+        </p>
+
+        <h3 class="report-subheading">Rigid &amp; Flexible Wing Analysis Using OpenAeroStruct (OAS) and VLM</h3>
+        <p>
+          The wing geometry producing the highest maximum L/D from Sim 1 was then used as a starting point for the aerostructural study. The wing used had properties AR = 12, taper ratio = 0.3 and washout = -1.5&deg;, which was also part of the group with the highest aspect ratio tested in the original study.
+        </p>
+        <p>
+          OAS was then used to investigate this geometry over a larger aspect ratio range from 6 to 18, with reference area held constant at S = 16.18 m&sup2; meaning the chord length was decreased as the AR was increased. 
+        </p>
+        <p>
+          Since Sim 1 was done with an LLT solver, another rigid analysis was done using OAS and a VLM solver to improve the validity of the rigid and flexible wing comparison. However, the Sim 1 results were still initially used to choose the appropriate wing geometry because they provide around the same maximum and minimum value results as the rigid VLM analysis.
+        </p>
+        <p>
+          As the name implies, the wings in the rigid analysis underwent no geometry changes under any aerodynamic loading whereas in the flexible analysis, only a specific section of the wing, determined within OAS using a numerical wingbox structure, was allowed to deform under aerodynamic loading.
+        </p>
+        <p class="project-context">
+          Since several of these structural properties were assumed rather than taken directly from the Cessna 172 wing structure, a sensitivity analysis was performed after the baseline simulations to investigate whether the observed aerodynamic trends depended strongly on the particular wingbox definition chosen.
+        </p>
+      </div>
+
+      <div class="project-section" id="results">
+        <h2>Results and Discussion</h2>
+
+        <h3 class="report-subheading report-subheading-first">Rigid Wing Analysis Using XFLR5 and LLT</h3>
+        <p>
+          The initial XFLR5 analysis showed a clear relationship between aspect ratio and maximum L/D. When ranking the geometries from highest to lowest maximum L/D, the highest AR wings consistently offered the best force ratio.
+        </p>
+        <div class="image-gallery few-images" style="max-width: 70%; margin: 0 auto;">
+          <figure class="gallery-item">
+            <img src="../assets/img/wing_project/01_xflr5_LD_vs_AR.png" alt="Maximum L/D vs Aspect Ratio, XFLR5" style="width: 100%; height: auto;">
+            <figcaption>Maximum L/D vs Aspect Ratio (XFLR5 configurations)</figcaption>
+          </figure>
+        </div>
+        <p>
+          This behavior is consistent with the relationship between aspect ratio and induced drag:
+        </p>
+        <p class="report-equation">CD<sub>i</sub> = CL&sup2; / (&pi; &times; AR &times; e)</p>
+        <p>
+          The influence of washout also changed with taper ratio. Between taper ratios of 0.3 and 0.7, -4&deg; of washout consistently produced the lowest maximum L/D. However, at a taper ratio of 1.0 this trend flipped and the wings with 0&deg; of washout produced the lowest L/D.
+        </p>
+        <div class="image-gallery few-images" style="max-width: 70%; margin: 0 auto;">
+          <figure class="gallery-item">
+            <img src="../assets/img/wing_project/02_xflr5_LD_vs_washout.png" alt="Maximum L/D vs Washout grouped by Taper Ratio" style="width: 100%; height: auto;">
+            <figcaption>Maximum L/D vs Washout, grouped by Taper Ratio</figcaption>
+          </figure>
+        </div>
+        <p>
+          This indicates that taper ratio and washout cannot be treated as fully independent influences on aerodynamic performance. The interaction between the two as well as the effects of span efficiency (e) and changes to CL was not investigated further in this report.
+        </p>
+
+        <h3 class="report-subheading">Rigid Wing Analysis Using OAS and VLM</h3>
+        <p>
+          The rigid OAS analysis produced the same general relationship between AR and aerodynamic efficiency. As AR increased from 6 to 18, L/D increased from 20.23 to 25.33. Although, the improvements did become progressively smaller at higher aspect ratios, which is consistent with diminishing aerodynamic returns from AR alone.
+        </p>
+
+        <h3 class="report-subheading">Flexible Wing Analysis Using OAS and VLM</h3>
+        <p>
+          The flexible analysis also showed increasing L/D as AR increased, going from 20.378 at AR=6 to 26.779 at AR=18. The maximum wing deformation increased from 0.0116 m at AR=6 to 0.3951 m at AR=18, while aeroelastic twist increased from 0.04&deg; to 0.33&deg; over the same range. Despite this rapid growth in structural deformation, L/D continued to improve throughout the tested range.
+        </p>
+
+        <h3 class="report-subheading">Rigid vs Flexible Wing Analysis</h3>
+        <p>
+          Both the rigid and flexible wings show increasing L/D as aspect ratio increases. However, the flexible wing consistently produces the higher value, with the difference growing from approximately 0.7% at AR=6 to 5.7% at AR=18. The flexible wings also consistently produce a higher induced drag coefficient than their rigid equivalents. This is significant since the higher L/D of the flexible wing cannot be attributed to a reduction in induced drag. Instead, deformation modifies the aerodynamic behavior of the wing to create an increase in lift that is big enough to produce a net improvement in L/D, despite the increase in induced drag. This happens because the aerodynamic center is ahead of the wing's elastic axis. This creates a pitching moment that twists the wing nose-up (leading edge), which increases the effective angle of attack along the span and gives more lift.
+        </p>
+        <div class="image-gallery few-images" style="max-width: 70%; margin: 0 auto;">
+          <figure class="gallery-item">
+            <img src="../assets/img/wing_project/04_rigid_vs_flexible_LD.png" alt="Rigid vs Flexible L/D comparison" style="width: 100%; height: auto;">
+            <figcaption>Rigid vs Flexible L/D vs Aspect Ratio</figcaption>
+          </figure>
+        </div>
+        <p>
+          The viscous drag coefficient remained nearly identical between the rigid and flexible analyses across the tested AR range. However, this doesn't actually disprove the initial prediction that structural deformation would substantially increase viscous drag. Since the OAS VLM solver just uses 2D approximations to calculate viscous drag, it doesn't capture the real 3D boundary layer changes that happen when the wing twists and bends.
+        </p>
+      </div>
+
+      <div class="project-section" id="sensitivity-analysis">
+        <h2>Sensitivity Analysis</h2>
+        <p>Three wingbox configurations were considered, varying only skin and spar thickness.</p>
+        <div class="project-table-wrap">
+          <table class="project-table">
+            <tr><th>Structure</th><th>Skin Thickness (mm)</th><th>Spar Thickness (mm)</th></tr>
+            <tr><td>Soft</td><td>1.5</td><td>3</td></tr>
+            <tr><td>Baseline</td><td>2</td><td>4</td></tr>
+            <tr><td>Stiff</td><td>3</td><td>6</td></tr>
+          </table>
+        </div>
+        <p class="project-context">
+          All three structures produced similar trends in CL, CD, CDi, CDv and L/D. The largest differences appeared in maximum deformation and aeroelastic twist.
+        </p>
+        <div class="image-gallery" style="display: flex; gap: 20px; max-width: 100%; margin: 0 auto;">
+          <figure class="gallery-item" style="flex: 1;">
+            <img src="../assets/img/wing_project/06_deformation_vs_AR.png" alt="Maximum Deformation vs AR" style="width: 100%; height: auto;">
+            <figcaption>Maximum Deformation vs AR (soft, baseline, stiff)</figcaption>
+          </figure>
+          <figure class="gallery-item" style="flex: 1;">
+            <img src="../assets/img/wing_project/07_twist_vs_AR.png" alt="Maximum Aeroelastic Twist vs AR" style="width: 100%; height: auto;">
+            <figcaption>Maximum Aeroelastic Twist vs AR (soft, baseline, stiff)</figcaption>
+          </figure>
+        </div>
+        <p>
+          This confirms that the structural response is considerably more sensitive to wingbox stiffness than the resulting aerodynamic performance is. Increasing skin and spar thickness reduces bending and twisting, while decreasing these thicknesses allows substantially larger deformation. However, these large structural differences produce comparatively smaller changes in the aerodynamic coefficients.
+        </p>
+        <p>
+          The sensitivity analysis therefore strengthens the main result of the flexible wing study. Although the magnitude of deformation depends strongly on the assumed structure, the overall aerodynamic trend remains present for the soft, baseline and stiff configurations, confirming this finding is not solely the result of an arbitrary thickness selection.
+        </p>
+      </div>
+
+      <div class="project-section" id="future-work">
+        <h2>Future Work</h2>
+        <p>
+          The rapid growth in deformation above AR=12 provides a useful direction for further investigation. One possible next step would be to select a representative wing above AR=12 and perform an individual CFD analysis on it to examine where exactly the wing deforms most strongly to see exactly how and where the angle of attack is increasing to produce that extra lift. A full 3D CFD analysis (Navier-Stokes) would also be needed to see how the aeroelastic deformation actually affects the boundary layers and viscous drag in real life, since the VLM solver couldn't physically test that part of the hypothesis.
+        </p>
+      </div>
+
+      <div class="project-section" id="tools-theory">
+        <h2>Tools Used</h2>
+        <ul>
+          <li><strong>OpenAeroStruct:</strong> OpenAeroStruct is a tool used for aerostructural optimization, fundamentally based on NASA's open source multidisciplinary design and analysis optimization framework.</li>
+          <li><strong>XFLR5:</strong> XFLR5 is an analysis tool for airfoils, wings and planes operating at low Reynolds numbers.</li>
+          <li><strong>Lifting Line Theory (LLT) & Vortex Lattice Method:</strong> A personal explanation of these methods will be added soon! <br>
+          In the meantime you can read more about them at <a href="https://www.flow5.tech/xflr5/xflr5.html" target="_blank">this webpage</a>. Under the Theoretical Background of the home page, sections: Part II: The inviscid problem_rev1.1 &amp; Limitations and Shortcomings.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

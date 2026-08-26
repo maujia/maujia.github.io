@@ -68,13 +68,11 @@ body.home-page {
 }
 
 .nav-label {
-  max-width: 0;
-  opacity: 0;
+  max-width: 10rem;
+  opacity: 1;
   overflow: hidden;
   white-space: nowrap;
-  transform: translateX(1rem);
-  transform-origin: left center;
-  transition: max-width 0.3s ease, opacity 0.2s ease, transform 0.3s ease;
+  transform: translateX(0);
 }
 
 .nav-dot {
@@ -98,13 +96,12 @@ body.home-page {
   color: var(--muted);
 }
 
-.nav-link.active {
+.nav-link {
   color: var(--text);
 }
 
-.nav-link.active .nav-label {
+.nav-label {
   font-weight: 600;
-  transform: translateX(0) scale(1.08);
 }
 
 /* ── Hero ── */
