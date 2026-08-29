@@ -190,6 +190,12 @@ body.project-page.wing-report .report-equation {
   font-style: italic;
 }
 
+/* Keep all resource links in the Tools Used section the same purple. */
+body.project-page.wing-report #tools-theory a,
+body.project-page.wing-report #tools-theory a:visited {
+  color: #6b21a8;
+}
+
 /* Tables */
 body.project-page.wing-report .project-table {
   width: 100%;
@@ -218,6 +224,16 @@ body.project-page.wing-report .image-gallery,
 body.project-page.wing-report .project-table-wrap {
   max-width: 100%;
   box-sizing: border-box;
+}
+
+/* Keep plot captions aligned with the center of their corresponding graphs. */
+body.project-page.wing-report .image-gallery .gallery-item {
+  margin: 0;
+}
+
+body.project-page.wing-report .image-gallery .gallery-item figcaption {
+  width: 100%;
+  text-align: center;
 }
 
 /* 3D wing widget */
