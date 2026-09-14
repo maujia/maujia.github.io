@@ -10,63 +10,70 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/NewStyle.css" />
 </head>
-<body class="project-page">
+<body class="project-page targeted-page fluid-dispenser-page">
 
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose">&#x2715;</button>
     <img class="lightbox-img" id="lightboxImg" src="" alt="" />
   </div>
 
-  <div class="project-header">
+  <div class="project-header targeted-header">
     <a href="../index.html#projects" class="back-link">&#8592; Back</a>
-    <h1>Automated Fluid Dispenser (AFD)</h1>
+    <div class="targeted-title">
+      <h1>Automated Fluid Dispenser</h1>
+      <p class="targeted-project-name">Group Project</p>
+    </div>
   </div>
 
-  <div class="project-body">
+  <div class="targeted-divider"></div>
 
-    <div class="project-section">
+  <div class="targeted-layout">
+    <section class="targeted-card fluid-description-card">
       <h2>Description</h2>
-      <p>
-        A prototype fluid dispenser for use in medical facilities with hands-free dispensing, using an IR sensor, pump, vials, turntable and a custom gearbox. An idea based on Vancouver's pilot project machine called MySafe.
-      </p>
-    </div>
+      <p>A hands-free fluid dispenser prototype. Inspired by Vancouver's pilot project machine called MySafe.</p>
+    </section>
 
-    <div class="project-section">
+    <section class="targeted-card fluid-features-card">
       <h2>Key Features</h2>
       <ul>
-        <li>Custom 5-gear gearbox and 3D printed housing</li>
-        <li>167:1 high torque gear ratio for precise vial rotations and alignment with dispensing nozzle</li>
-        <li>Hands-free operation through the use of IR sensors</li>
+        <li>Custom 5-gear gearbox and 3D-printed housing.</li>
+        <li>167:1 high-torque gear ratio for precise vial alignment.</li>
+        <li>Hands-free operation using IR sensors.</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="project-section">
-      <div class="image-gallery few-images compact-captions">
-
-        <figure class="gallery-item">
-          <img src="../assets/img/fluiddispenser_schematic.jpg"
-               alt="System schematic showing component integration"
-               loading="lazy">
-          <figcaption>Initial prototype drawing</figcaption>
-        </figure>
-
-        <figure class="gallery-item">
-          <img src="../assets/img/fluidD_cad.jpg"
-               alt="CAD drawing of the complete fluid dispenser assembly"
-               loading="lazy">
-          <figcaption>CAD drawing of the complete fluid dispenser assembly</figcaption>
-        </figure>
-
+    <div class="fluid-image-item">
+      <section class="targeted-card targeted-visuals fluid-image-card">
         <figure class="gallery-item">
           <img src="../assets/img/fluiddispenser.jpg"
                alt="Assembled fluid dispenser"
                loading="lazy">
-          <figcaption>Assembled fluid dispenser</figcaption>
         </figure>
-
-      </div>
+      </section>
+      <p class="fluid-image-caption">Assembled Dispenser</p>
     </div>
 
+    <div class="fluid-image-item">
+      <section class="targeted-card targeted-visuals fluid-image-card">
+        <figure class="gallery-item">
+          <img src="../assets/img/fluidD_cad.jpg"
+               alt="CAD drawing of the complete fluid dispenser assembly"
+               loading="lazy">
+        </figure>
+      </section>
+      <p class="fluid-image-caption">CAD Assembly</p>
+    </div>
+
+    <div class="fluid-image-item">
+      <section class="targeted-card targeted-visuals fluid-image-card">
+        <figure class="gallery-item">
+          <img src="../assets/img/fluiddispenser_schematic.jpg"
+               alt="System schematic showing component integration"
+               loading="lazy">
+        </figure>
+      </section>
+      <p class="fluid-image-caption">Prototype Schematic</p>
+    </div>
   </div>
 
   <script>

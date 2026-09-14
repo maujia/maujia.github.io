@@ -10,38 +10,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/NewStyle.css" />
 </head>
-<body class="project-page">
+<body class="project-page targeted-page">
 
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">&#x2715;</button>
     <img class="lightbox-img" id="lightboxImg" src="" alt="" />
   </div>
 
-  <div class="project-header">
+  <div class="project-header targeted-header">
     <a href="../index.html#projects" class="back-link">&#8592; Back</a>
-    <h1>Wing Design Optimization</h1>
+    <div class="targeted-title">
+      <h1>What is it?</h1>
+      <p class="targeted-project-name">Wing Design Optimization</p>
+    </div>
   </div>
 
-  <div class="project-body">
+  <div class="targeted-divider"></div>
 
-    <div class="project-section">
-      <h2>Project Motivation</h2>
-      <p>
-        I took fluid mechanics in my most recent semester of engineering and really enjoyed learning the 
-        fundamental theory, specifically how force analysis is done on an airfoil. So,
-        this page is a series of short CFD simulations I did to refresh on a few core concepts learnt last semester: Potential Flow, Converging-Diverging Nozzles, and Lift and Drag on an Airfoil.
-      </p>
-    </div>
-    <div class="project-section">
-      <h2>Currently Working On</h2>
-      <p>
-        I'm now currently working on a small project using XFLR5 to optimize the performance of a NACA 2412 wing. This project is inspired by the wing optimization project laid out:</p>
-      <a href="https://www.aeroed.ai/projects/wing-optimization-xflr5" class="project-link" target="_blank" rel="noopener">here</a>
+  <div class="targeted-layout">
+    <div class="targeted-info">
+      <section class="targeted-card">
+        <h2>Objectives</h2>
+        <p>Refresh core fluid mechanics concepts through short CFD simulations covering potential flow, converging-diverging nozzles, and lift and drag on an airfoil.</p>
+      </section>
+
+      <section class="targeted-card">
+        <h2>Outcomes &amp; Contributions</h2>
+        <p>Built a set of simulations in Ansys Fluent and began a related NACA 2412 wing-optimization project using XFLR5.</p>
+      </section>
+
+      <section class="targeted-card">
+        <h2>Technical Details &amp; Skills</h2>
+        <p>Computational fluid dynamics, Ansys Fluent, potential flow, compressible nozzle flow, and airfoil lift and drag analysis.</p>
+        <p><a href="https://www.aeroed.ai/projects/wing-optimization-xflr5" class="project-link" target="_blank" rel="noopener">Related project reference</a></p>
+      </section>
     </div>
 
-    <div class="project-section">
-      <h2>Simulations</h2>
-      <p>These simulations were all done using Ansys Fluent</p>
+    <section class="targeted-card targeted-visuals">
+      <h2>Visuals</h2>
       <div class="image-gallery few-images cfd-gallery">
         <figure class="gallery-item">
           <img src="../assets/img/Pressure Contour Lab2.png"
@@ -64,10 +70,7 @@
           <figcaption>Airfoil in a uniform flow of 20 m/s at an angle of attack of 10 degrees</figcaption>
         </figure>
       </div>
-    </div>
-
-
-
+    </section>
   </div>
 
   <script>

@@ -10,70 +10,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/NewStyle.css" />
 </head>
-<body class="project-page cvt-page">
+<body class="project-page cvt-page targeted-page">
 
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">&#x2715;</button>
     <img class="lightbox-img" id="lightboxImg" src="" alt="" />
   </div>
 
-  <div class="project-header">
+  <div class="project-header targeted-header">
     <a href="../index.html#projects" class="back-link">&#8592; Back</a>
-    <h1>Design Team Contributions</h1>
+    <div class="targeted-title">
+      <h1>Queen's Off Road Vehicle Design Team - Baja SAE</h1>
+      <p class="targeted-project-name">Powertrain and Embedded systems subteams</p>
+    </div>
   </div>
 
-  <div class="project-body">
+  <div class="targeted-divider"></div>
 
-        <article class="project-subproject">
-      <h2>Embedded Transmission Data Acquisition (25/26)</h2>
-
-      <div class="project-section">
-        <h2>Description</h2>
-        <p>
-          This project involved learning how to write firmware on STM32 chips to collect real-time temperature data from the vehicle's transmission system. Additionally, I assisted in migrating the vehicle's existing CAN bus communication library to use FreeRTOS.
-        </p>
+  <div class="cvt-content">
+    <section class="cvt-team-section">
+      <h2 class="cvt-team-heading">Embedded Team</h2>
+      <div class="cvt-card-grid cvt-embedded-grid">
+        <section class="targeted-card">
+          <h2>Description</h2>
+          <p>This project involved learning how to write firmware on STM32 chips to collect real-time temperature data from the vehicle's transmission system. Additionally, I assisted in migrating the vehicle's existing CAN bus communication library to use FreeRTOS.</p>
+        </section>
+        <section class="targeted-card">
+          <h2>What I Learnt</h2>
+          <ul>
+            <li>How to program STM32 boards and contribute new firmware to an existing codebase</li>
+            <li>How the CAN bus protocol works and how FreeRTOS can be used instead of polling to guarantee predictable response times when collecting data from the sensors during competition</li>
+          </ul>
+        </section>
       </div>
+    </section>
 
-      <div class="project-section">
-        <h2>What I learnt</h2>
-        <ul>
-          <li>How to program STM32 boards and contribute new firmware to an existing codebase</li>
-          <li>How the CAN bus protocol works and how FreeRTOS can be used instead of polling to guarantee predictable response times when collecting data from the sensors during competition</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="project-subproject">
-      <h2>CVT Modelling and Manufacturing (22/23)</h2>
-
-      <div class="project-section">
-        <h2>Description</h2>
-        <p>
-          This project involved designing and manufacturing a Continuously Variable Transmission (CVT) system for the team's 2024 vehicle. The CVT uses a pulley-and-belt mechanism to provide seamless gear-ratio transitions and keep the engine operating in an effective RPM range. Components were designed in CAD and manufactured using precision machining processes, including Mastercam-programmed lathe operations.
-        </p>
-      </div>
-
-      <div class="project-section">
-        <h2>Key Contributions</h2>
-        <ul>
-          <li>Assisted with CAD modelling and manufacturing work for the CVT system</li>
-          <li>Shadowed the manufacturing of the secondary transmission unit's sheaves</li>
-          <li>Learned to compose G-code toolpaths with Mastercam for CNC machining</li>
-        </ul>
-      </div>
-
-      <div class="project-section">
-        <div class="image-gallery few-images">
+    <section class="cvt-team-section">
+      <h2 class="cvt-team-heading">CVT Modelling and Manufacturing</h2>
+      <div class="cvt-card-grid cvt-powertrain-grid">
+        <section class="targeted-card">
+          <h2>Description</h2>
+          <p>This project involved designing and manufacturing a Continuously Variable Transmission (CVT) system for the team's 2024 vehicle. The CVT uses a pulley-and-belt mechanism to provide seamless gear-ratio transitions and keep the engine operating in an effective RPM range. Components were designed in CAD and manufactured using precision machining processes, including Mastercam-programmed lathe operations.</p>
+        </section>
+        <section class="targeted-card">
+          <h2>Key Contributions</h2>
+          <ul>
+            <li>Assisted with CAD modelling and manufacturing work for the CVT system</li>
+            <li>Shadowed the manufacturing of the secondary transmission unit's sheaves</li>
+          </ul>
+        </section>
+        <section class="targeted-card targeted-visuals cvt-image-card">
           <figure class="gallery-item">
-            <img src="../assets/img/cvt_img.png"
-                 alt="Assembled CVT system for the 2024 Baja SAE vehicle"
-                 loading="lazy">
-            <figcaption>Assembled CVT system for the 2024 Baja SAE vehicle</figcaption>
+            <img src="../assets/img/cvt_img.png" alt="Assembled CVT system for the 2024 Baja SAE vehicle" loading="lazy">
           </figure>
-        </div>
+        </section>
       </div>
-    </article>
-
+    </section>
   </div>
 
   <script>

@@ -16,7 +16,7 @@ body.project-page.wing-report {
   font-family: "Georgia", Times, serif !important;
   line-height: 1.6;
   color: #333;
-  background: #faf9f7;
+  background: #fff;
 }
 
 /* Floating left navigation */
@@ -37,7 +37,7 @@ body.project-page.wing-report::before {
   left: 0;
   width: 250px;
   height: 150vh;
-  background: #faf9f7;
+  background: #fff;
   z-index: 5;
 }
 
@@ -239,6 +239,7 @@ body.project-page.wing-report .image-gallery .gallery-item figcaption {
 /* 3D wing widget */
 body.project-page.wing-report #wing-widget {
   --wing-accent: #1e3a5f;
+  position: relative;
   max-width: 800px;
   margin: 3rem auto;
   background: transparent;
@@ -515,5 +516,43 @@ body.project-page.wing-report #wing-widget input[type="range"]#in-zoom {
   body.project-page.wing-report .report-equation {
     font-size: 0.95rem;
     word-break: break-word;
+  }
+}
+
+@media (max-width: 640px) {
+  body.project-page.wing-report #wing-widget {
+    min-height: 220px;
+  }
+
+  body.project-page.wing-report #wing-widget .mobile-widget-notice {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.96);
+    color: #444;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  body.project-page.wing-report #wing-widget .mobile-widget-notice p {
+    margin: 0;
+  }
+}
+
+.mobile-widget-notice {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  body.project-page.wing-report #wing-widget .mobile-widget-notice {
+    display: flex;
   }
 }

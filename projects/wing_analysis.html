@@ -13,6 +13,7 @@
   <nav class="sidebar">
     <h3>Contents</h3>
     <ul>
+      <li><a href="#abstract">Abstract</a></li>
       <li><a href="#introduction">Introduction</a></li>
       <li><a href="#theoretical-concepts">Theoretical Concepts</a></li>
       <li><a href="#methods">Methods</a></li>
@@ -28,15 +29,19 @@
     <div class="project-header">
       <a href="../index.html#projects" class="back-link">&#8592; Back</a>
       <h1>Wing Geometry Analysis</h1>
-      <p class="subtitle">How does the aerodynamic advantage of increasing aspect ratio change when considering the structural flexibility and aeroelastic deformation properties of a wing?</p>
     </div>
 
     <div class="project-body">
 
-      <div class="project-section" id="introduction">
+      <div class="project-section" id="abstract">
+        <h2>Abstract</h2>
         <p>
           This report investigates how the geometrical properties of a Cessna 172-inspired wing affect its lift and drag generation in the case of a rigid and a flexible wing. Specifically, how the aspect ratio (AR), taper ratio (TR) and twist angle (washout) geometry influences aerodynamic performance for rigid wings, then looking at how these effects change in an environment where the wing is flexible and can undergo aeroelastic deformation.
         </p>
+      </div>
+
+      <div class="project-section" id="introduction">
+        <h2>Introduction</h2>
         <p>
           Higher aspect ratios are theoretically associated with improved aerodynamic efficiency, particularly through reduced induced drag as shown in this formula.
         </p>
@@ -86,6 +91,9 @@
         <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
         <div id="wing-widget">
+          <div class="mobile-widget-notice" role="note">
+            <p>This interactive tool is available on the web version.<br>Open this report on a desktop browser to view it.</p>
+          </div>
           <div class="viewport-row">
             <div class="three-container" id="three-container"></div>
             <div class="zoom-slider-wrap">

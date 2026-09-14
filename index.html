@@ -22,96 +22,169 @@
     <div class="hero-inner">
       <h1>Arjun Mauji</h1>
       <p class="hero-body">
-        Hello! I'm a Mechanical Engineering Student at Queen's University, currently exploring embedded systems and aerospace.
+        Mechanical Engineering at QueensU exploring aerospace and embedded systems.
       </p>
     </div>
   </section>
 
   <main>
-
     <section class="content-section" id="projects">
       <h2>Projects</h2>
-      <ul class="section-list">
-        <li>
-          <span class="bullet">&gt;</span><a href="projects/wing_analysis.html" class="project-link">Wing Analysis</a>
-          <p>Wing Analysis Project using XFLR5 and OpenAeroStruct</p>
-        </li>
-        <li>
-          <span class="bullet">&gt;</span><a href="projects/signaldisplayer.html" class="project-link">Signal Displayer</a>
-          <p>Two channel STM32 based signal displayer.</p>
-        </li>
-        <li>
-          <span class="bullet">&gt;</span><a href="projects/gaitanalyzer.html" class="project-link">Hardware Motion Analyzer</a>
-          <p>Prototype motion analysis tool with custom sensor modules under $25.</p>
-        </li>
-        <li>
-          <span class="bullet">&gt;</span><a href="projects/cvt.html" class="project-link">Design Team Contributions - (BAJA) Queen's Off Road Vehicle Team</a>
-          <ul class="project-sublist">
-            <li>Design team contributions as part of the Powertrain and Embedded team.</li>
-          </ul>
-        </li>
-        <li>
-          <span class="bullet">&gt;</span><a href="projects/fluiddispenser.html" class="project-link">Automated Fluid Dispenser</a>
-          <p>Prototype automated fluid dispenser with hands-free dispensing.</p>
-        </li>
-      </ul>
 
-      <h3 class="project-subsection-title">In Progress</h3>
+      <!--
       <ul class="section-list">
         <li>
-          <span class="bullet">&gt;</span><a href="projects/oscilloscope.html" class="project-link">Oscilloscope</a>
-          <p>Digital oscilloscope using an STM32.</p>
+          <span class="bullet">&gt;</span><a href="projects/wing_analysis_abstract.html" class="project-link">Wing Analysis</a><span class="project-description">: Wing Analysis Project using XFLR5 and OpenAeroStruct.</span>
         </li>
-        <!--
         <li>
-          <span class="bullet">&gt;</span><a href="projects/cfdstudies.html" class="project-link">CFD Simulations & Wing Optimization</a>
-          <p>Fluid dynamics simulations and a wing optimization project.</p>
+          <span class="bullet">&gt;</span><a href="projects/signaldisplayer.html" class="project-link">Signal Displayer</a><span class="project-description">: Two channel STM32 based signal displayer.</span>
         </li>
-        -->
         <li>
-          <span class="bullet">&gt;</span><a href="projects/stm32-bootloader.html" class="project-link">Bootloader</a>
-          <p>STM32 based bootloader.</p>
+          <span class="bullet">&gt;</span><a href="projects/gaitanalyzer.html" class="project-link">Hardware Motion Analyzer</a><span class="project-description">: Prototype motion analysis tool under $25.</span>
+        </li>
+        <li>
+          <span class="bullet">&gt;</span><a href="projects/cvt.html" class="project-link">Queen's Baja Off Road Vehicle Design Team</a><span class="project-description">: Powertrain and Embedded team.</span>
+        </li>
+        <li>
+          <span class="bullet">&gt;</span><a href="projects/fluiddispenser.html" class="project-link">Automated Fluid Dispenser</a><span class="project-description">: Automated fluid dispenser with hands-free dispensing.</span>
         </li>
       </ul>
+      -->
+
+      <div class="project-grid">
+        <div class="project-card" tabindex="0" role="button" aria-expanded="false" aria-label="Open actions for Wing Analysis" data-project-url="projects/wing_analysis_abstract.html" data-github-url="https://github.com/maujia">
+          <img src="assets/img/wing_project/wing_geometry_project.png" alt="Wing geometry analysis">
+          <span class="project-card-copy"><strong>Wing Analysis</strong><small>XFLR5 and OpenAeroStruct</small></span>
+          <button class="project-card-close" type="button" aria-label="Close project actions">×</button>
+          <span class="arc-menu" aria-hidden="true">
+            <a class="arc-action arc-project" href="projects/wing_analysis.html">Full Report</a>
+          </span>
+        </div>
+        <div class="project-card" tabindex="0" role="button" aria-expanded="false" aria-label="Open actions for Signal Displayer" data-project-url="projects/signaldisplayer.html" data-github-url="https://github.com/maujia">
+          <video autoplay muted loop playsinline aria-label="Signal displayer demo">
+            <source src="assets/video/Signal_Display_Demo.mp4" type="video/mp4">
+          </video>
+          <span class="project-card-copy"><strong>Signal Displayer</strong><small>Two-channel STM32 instrument</small></span>
+          <button class="project-card-close" type="button" aria-label="Close project actions">×</button>
+          <span class="arc-menu" aria-hidden="true">
+            <a class="arc-action arc-project" href="projects/signaldisplayer.html">Project page</a>
+            <a class="arc-action arc-github" href="https://github.com/maujia/Signal-Displayer" target="_blank" rel="noopener">GitHub</a>
+          </span>
+        </div>
+        <div class="project-card" tabindex="0" role="button" aria-expanded="false" aria-label="Open actions for Hardware Motion Analyzer" data-project-url="projects/gaitanalyzer.html" data-github-url="https://github.com/maujia">
+          <div class="project-slideshow" aria-label="Hardware motion analyzer portfolio images">
+            <img class="is-active" src="assets/img/electronics.jpg" alt="Hardware motion analyzer electronics">
+            <img src="assets/img/isometric_photo_rmvbg.png" alt="Hardware motion analyzer isometric design">
+            <img src="assets/img/angle-view.png" alt="Hardware motion analyzer angle view">
+          </div>
+          <span class="project-card-copy"><strong>Hardware Motion Analyzer</strong><small>Prototype motion analysis tool</small></span>
+          <button class="project-card-close" type="button" aria-label="Close project actions">×</button>
+          <span class="arc-menu" aria-hidden="true">
+            <a class="arc-action arc-project" href="projects/gaitanalyzer.html">Project page</a>
+            <a class="arc-action arc-github" href="https://github.com/maujia/gait-analyzer" target="_blank" rel="noopener">GitHub</a>
+          </span>
+        </div>
+        <div class="project-card" tabindex="0" role="button" aria-expanded="false" aria-label="Open actions for Baja Off Road Vehicle" data-project-url="projects/cvt.html" data-github-url="https://github.com/maujia">
+          <img class="cvt-image" src="assets/img/cvt_img.png" alt="Baja vehicle drivetrain design">
+          <span class="project-card-copy"><strong>Off Road Vehicle School Design Team</strong><small>Powertrain and Embedded systems</small></span>
+          <button class="project-card-close" type="button" aria-label="Close project actions">×</button>
+          <span class="arc-menu" aria-hidden="true">
+            <a class="arc-action arc-project" href="projects/cvt.html">Project page</a>
+          </span>
+        </div>
+        <div class="project-card" tabindex="0" role="button" aria-expanded="false" aria-label="Open actions for Automated Fluid Dispenser" data-project-url="projects/fluiddispenser.html" data-github-url="https://github.com/maujia">
+          <img class="contain-image" src="assets/img/fluiddispenser.jpg" alt="Automated fluid dispenser prototype">
+          <span class="project-card-copy"><strong>Automated Fluid Dispenser</strong><small>Hands-free dispensing system</small></span>
+          <button class="project-card-close" type="button" aria-label="Close project actions">×</button>
+          <span class="arc-menu" aria-hidden="true">
+            <a class="arc-action arc-project" href="projects/fluiddispenser.html">Project page</a>
+            <a class="arc-action arc-github" href="https://github.com/maujia/Automated-Fluid-Dispenser" target="_blank" rel="noopener">GitHub</a>
+          </span>
+        </div>
+      </div>
     </section>
 
     <div class="divider"></div>
 
     <section class="content-section" id="writing">
       <h2>Writing</h2>
-      <ul class="section-list">
-        <li>
-          <span class="bullet">&gt;</span><a href="https://arjunmauji.notion.site/An-experiment-to-explore-CTE-mismatch-in-microelectronics-packaging-363000c24d8480588099e7f1a4ac33b4" class="project-link">Microelectronics Packaging</a>
-          <p>Summary of my introductory reading on microelectronics packaging and a small FEA experiment to understand the effects of varying material thermal expansion.</p>
-        </li>
-      </ul>
+      <a class="writing-card" href="https://arjunmauji.notion.site/An-experiment-to-explore-CTE-mismatch-in-microelectronics-packaging-363000c24d8480588099e7f1a4ac33b4" target="_blank" rel="noopener">
+        <img src="assets/img/cte_mismatch.webp" alt="CTE mismatch in microelectronics packaging">
+        <span class="writing-card-copy">
+          <strong>Microelectronics Packaging and CTE Mismatch</strong>
+          <small>FEA experiment to visualize CTE mismatch</small>
+        </span>
+      </a>
     </section>
 
     <div class="divider"></div>
 
-    <section class="content-section" id="contact">
+      <section class="content-section" id="contact">
       <h2>Contact</h2>
       <ul class="section-list plain contact-list">
-        <li><span class="bullet">&gt;</span><a href="mailto:22cnr1@queensu.ca" class="project-link">Email</a></li>
-        <li><span class="bullet">&gt;</span><a href="https://www.linkedin.com/in/arjun-mauji-b67610215/" class="project-link" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><span class="bullet">&gt;</span><a href="https://github.com/maujia" class="project-link" target="_blank" rel="noopener">GitHub</a></li>
-        <li><span class="bullet">&gt;</span><a href="src/pdf/Resume - Arjun Mauji - 2026 AugustV2.pdf" class="project-link" target="_blank" rel="noopener">Resume</a></li>
+        <li><a href="mailto:22cnr1@queensu.ca" class="project-link">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/arjun-mauji-b67610215/" class="project-link" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/maujia" class="project-link" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="src/pdf/Resume - Sept 14.pdf" class="project-link" target="_blank" rel="noopener">Resume</a></li>
       </ul>
     </section>
 
   </main>
 
+  <footer class="site-footer">Last updated: Sept 14th 2026</footer>
+
   <script>
-    const hero = document.getElementById('hero');
-    const sideNav = document.getElementById('sideNav');
+    const projectCards = document.querySelectorAll('.project-card');
 
-    const heroObserver = new IntersectionObserver(([entry]) => {
-      sideNav.classList.toggle('visible', !entry.isIntersecting);
-    }, { threshold: 0.5} );
+    function closeProjectMenus() {
+      projectCards.forEach(card => {
+        card.classList.remove('menu-open');
+        card.setAttribute('aria-expanded', 'false');
+        card.querySelector('.arc-menu').setAttribute('aria-hidden', 'true');
+      });
+    }
 
-    heroObserver.observe(hero);
+    projectCards.forEach(card => {
+      card.addEventListener('click', event => {
+        if (event.target.closest('.arc-action') || event.target.closest('.project-card-close')) return;
 
-    const sections = document.querySelectorAll('.content-section');
+        const isOpen = card.classList.contains('menu-open');
+        closeProjectMenus();
+        if (!isOpen) {
+          card.classList.add('menu-open');
+          card.setAttribute('aria-expanded', 'true');
+          card.querySelector('.arc-menu').setAttribute('aria-hidden', 'false');
+        }
+      });
+
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          card.click();
+        }
+      });
+
+      card.querySelector('.project-card-close').addEventListener('click', event => {
+        event.stopPropagation();
+        closeProjectMenus();
+      });
+    });
+
+    document.querySelectorAll('.project-slideshow').forEach(slideshow => {
+      const slides = slideshow.querySelectorAll('img');
+      let currentSlide = 0;
+
+      setInterval(() => {
+        slides[currentSlide].classList.remove('is-active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('is-active');
+      }, 1500);
+    });
+
+    document.addEventListener('click', event => {
+      if (!event.target.closest('.project-card')) closeProjectMenus();
+    });
+
     const navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach(link => {

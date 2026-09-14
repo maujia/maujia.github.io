@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../assets/NewStyle.css" />
 </head>
 
-<body class="project-page">
+<body class="project-page targeted-page gait-analyzer-page">
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
@@ -19,64 +19,57 @@
     <img class="lightbox-img" id="lightboxImg" src="" alt="" />
   </div>
 
-  <!-- PAGE HEADER -->
-  <div class="project-header">
+  <div class="project-header targeted-header">
     <a href="../index.html#projects" class="back-link">&#8592; Back</a>
-    <h1>Hardware Gait Analyzer</h1>
+    <div class="targeted-title">
+      <h1>Hardware Gait Analyzer</h1>
+      <p class="targeted-project-name">Prototype motion analysis tool</p>
+    </div>
   </div>
 
-  <!-- CONTENT -->
-  <div class="project-body">
+  <div class="targeted-divider"></div>
 
-    <div class="project-section">
-      <h2>Description</h2>
-      <p>
-        A proof-of-concept low-cost motion analysis tool. Using a pair of wireless sensor modules placed
-        under the L4 vertebra and on either the left or right thigh to measure basic hip flexion and
-        extension movements. The project provides the possibility for a completely modular and portable
-        motion analyzer, usable in any environment, completely wireless and requiring just a computer to
-        analyse results.
-      </p>
+  <div class="targeted-layout gait-layout">
+    <div class="gait-left-column">
+      <section class="targeted-card gait-description-card">
+        <h2>Description</h2>
+        <p>Custom wireless sensor modules using ESP32s and 6-axis IMUs to measure simple hip flexion and extension movements.</p>
+      </section>
+      <section class="targeted-card gait-technical-card">
+        <h2>Technical Details</h2>
+        <ul>
+          <li>Collecting angle data in real time via bluetooth using a 3rd ESP32 as a receiver plugged into a computer.</li>
+          <li>IMU angle data filtered using a Madgwick filter (quaternion based) and exponential smoothing.</li>
+          <li>Analyzed the data by looking at the peak angle values and steadiness with Python &amp; SciPy.</li>
+        </ul>
+      </section>
     </div>
 
-    <div class="project-section">
-      <h2>Key Features</h2>
-      <ul>
-        <li>Custom wireless sensor modules using ESP32 microcontrollers and MPU6050 inertial measurement sensors</li>
-        <li>3D-printed sensor housing for protoboard, circuit wiring, and LiPo battery</li>
-        <li>Wireless operation and communication through LiPo batteries and built-in ESP-NOW protocol</li>
-        <li>Data filtered using a Madgwick filter and exponential smoothing</li>
-        <li>Motion analysis performed by looking at the data's peak angle values and steadiness with Python &amp; SciPy</li>
-      </ul>
-    </div>
-
-    <div class="project-section">
-      <div class="image-gallery few-images compact-captions">
-
-        <figure class="gallery-item">
-          <img src="../assets/img/isometric_photo_rmvbg.png"
-               alt="Assembled sensor module with 3D-printed housing"
-               loading="lazy">
-          <figcaption>Assembled sensor module with 3D-printed housing</figcaption>
-        </figure>
-
-        <figure class="gallery-item">
-          <img src="../assets/img/cad_sensormodule.png"
-               alt="Initial CAD design of the sensor module"
-               loading="lazy">
-          <figcaption>Initial CAD design of the sensor module</figcaption>
-        </figure>
-
-        <figure class="gallery-item">
-          <img src="../assets/img/image.png"
-               alt="Sample analysis of a hip flexion angle dataset"
-               loading="lazy">
-          <figcaption>Sample analysis of a hip flexion angle dataset</figcaption>
-        </figure>
-
+    <div class="gait-middle-column">
+      <div class="gait-image-item">
+        <section class="targeted-card targeted-visuals gait-image-card">
+          <figure class="gallery-item"><img src="../assets/img/electronics.jpg" alt="Hardware analyzer electronics" loading="lazy"></figure>
+        </section>
+      </div>
+      <div class="gait-image-item">
+        <section class="targeted-card targeted-visuals gait-image-card">
+          <figure class="gallery-item"><img src="../assets/img/isometric_photo.jpg" alt="Assembled sensor module with 3D-printed housing" loading="lazy"></figure>
+        </section>
       </div>
     </div>
 
+    <div class="gait-cad-column">
+      <div class="gait-image-item">
+        <section class="targeted-card targeted-visuals gait-image-card">
+          <figure class="gallery-item"><img src="../assets/img/angle-view.png" alt="CAD assembly of the sensor module" loading="lazy"></figure>
+        </section>
+      </div>
+      <div class="gait-image-item">
+        <section class="targeted-card targeted-visuals gait-image-card">
+          <figure class="gallery-item"><img src="../assets/img/top view of gait analyzer.jpg" alt="Top view of the hardware gait analyzer" loading="lazy"></figure>
+        </section>
+      </div>
+    </div>
   </div>
 
   <script>

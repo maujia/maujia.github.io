@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wing Analysis</title>
+  <link rel="stylesheet" href="../assets/NewStyle.css" />
+</head>
+<body class="project-page targeted-page wing-abstract-page">
+
+  <div class="project-header targeted-header">
+    <a href="../index.html#projects" class="back-link">&#8592; Back</a>
+    <div class="targeted-title">
+      <h1>Wing Geometry Analysis</h1>
+      <p class="targeted-project-name">Overview of my findings on how varying wing geometry affects it's lift and drag generation</p>
+    </div>
+  </div>
+
+  <div class="targeted-divider"></div>
+
+  <div class="targeted-layout">
+    <section class="targeted-card targeted-visuals wing-abstract-card">
+      <h2>Abstract</h2>
+      <p>
+        This report investigates how the geometrical properties of a Cessna 172-inspired wing affect its lift and drag generation in the case of a rigid and a flexible wing. Specifically, how aspect ratio, taper ratio and twist angle influence aerodynamic performance, then looking at how these effects change in an environment where the wing is flexible and can undergo aeroelastic deformation. The initial rigid wing study was performed using XFLR5 and Lifting Line Theory, with 64 wing configurations analyzed before structural flexibility was introduced.
+      </p>
+    </section>
+
+    <div class="targeted-info wing-media-tiles">
+      <section class="targeted-card">
+        <img src="../assets/img/wing_project/wing_geometry_project.png"
+             alt="Wing geometry analysis project visual"
+             loading="lazy">
+      </section>
+      <section class="targeted-card">
+        <h2>Next Steps</h2>
+        <p>
+          The flexible-wing analysis used 2D approximations for viscous drag, so it could not capture 3D boundary-layer effects from twisting and bending. The next step will be to use Ansys Fluent to perform a 3D CFD analysis and ascertain specifically at what points on the wing lift is either increased or decreased due to deformation.
+        </p>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>

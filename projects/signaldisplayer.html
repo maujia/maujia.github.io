@@ -10,43 +10,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/NewStyle.css" />
 </head>
-<body class="project-page">
+<body class="project-page targeted-page">
 
-  <div class="project-header">
+  <div class="project-header targeted-header">
     <a href="../index.html#projects" class="back-link">&#8592; Back</a>
-    <h1>Signal Displayer</h1>
+    <div class="targeted-title">
+      <h1>Signal Displayer</h1>
+      <p class="targeted-project-name">STM32 based signal viewer</p>
+    </div>
   </div>
 
-  <div class="project-body">
+  <div class="targeted-divider"></div>
 
-    <div class="project-section">
-      <h2>Description</h2>
-      <p>
-        A small signal displayer with 2 channels which can be switched through via buttons to display
-        either a varying voltage or PWM signal, both between 0-3.3V.
-      </p>
+  <div class="targeted-layout">
+    <div class="targeted-info">
+      <section class="targeted-card">
+        <h2>Project Description</h2>
+        <p>An STM32-based signal displayer with button-controlled channel switching. Specifically displays both a PWM and constant signal between 0-3.3V .</p>
+      </section>
 
-      <h2>Demo</h2>
-      <div class="video-gallery few-videos">
-        <figure class="gallery-item">
-          <video class="project-video" controls playsinline preload="metadata"
-                 src="../assets/video/Signal_Display_Demo.mp4">
-            Your browser does not support the video tag.
-          </video>
-        </figure>
-      </div>
-
-      <br>
-      <h2>What I Learnt</h2>
-      <p>I initially wrote the code using STM32CubeMX but then transitioned to bare-metal C using the STM32 reference manual and datasheet. Here are the most interesting things I learnt while building this project:</p>
-      <br>
-      <ul>
-        <li>How to configure hardware peripherals (ADC, GPIO, SPI, timers) at the register level using bitwise operations and bitmasks.</li>
-        <li>How to implement channel switching with buttons by using the ARM interrupt controller (NVIC) and routing hardware interrupts to my ISR functions.</li>
-        <li>How to communicate using the SPI protocol by writing a custom device driver to interface with the display module (based on its own datasheet).</li>
-      </ul>
+      <section class="targeted-card">
+        <h2>Technical Details</h2>
+        <p style="margin-bottom: 6px;">I initially wrote the code using STM32CubeMX but then transitioned to bare-metal C using the STM32 reference manual and datasheet.</p>
+        <p>In doing so I learnt how to: </p>
+        <ul>
+          <li>Configure hardware peripherals (ADC, GPIO, SPI, timers) at the register level using bitwise operations and bitmasks.</li>
+          <li>Implement channel switching with buttons by using the ARM interrupt controller (NVIC) and routing hardware interrupts to ISR functions.</li>
+          <li>Communicate using the SPI protocol by writing a custom device driver to interface with the display module.</li>
+        </ul>
+      </section>
     </div>
 
+    <div class="targeted-visual-column">
+      <section class="targeted-card targeted-visuals">
+        <h2>Demo</h2>
+        <div class="video-gallery few-videos">
+          <figure class="gallery-item">
+            <video class="project-video" controls playsinline preload="metadata"
+                   src="../assets/video/Signal_Display_Demo.mp4">
+              Your browser does not support the video tag.
+            </video>
+          </figure>
+        </div>
+      </section>
+
+    </div>
   </div>
 
 </body>
