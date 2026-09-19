@@ -92,7 +92,8 @@ body.home-page {
 }
 
 .hero-inner {
-  max-width: 620px;
+  width: 620px;
+  max-width: calc(100% - 4rem);
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -566,6 +567,8 @@ body.home-page #writing .bullet {
   }
 
   .hero-inner {
+    width: auto;
+    max-width: none;
     padding: 0 1.5rem;
   }
 
